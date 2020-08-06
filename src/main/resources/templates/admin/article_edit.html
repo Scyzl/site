@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" th:with="title = '发布文章'" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{admin/commons/commons::admin-head(${title})}"></head>
+<body>
+
+
+<div class="layui-fluid layadmin-message-fluid">
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <form class="layui-form" method="post" th:action="@{#}">
+                <!--标题-->
+                <div class="layui-form-item">
+                    <div class="layui-col-md1">
+                        <div class="layui-input-block" style="border: 1px solid #1E9FFF">
+                            <select lay-filter="" lay-verify="required" name="type">
+                                <option selected value="0">原创</option>
+                                <option value="1">转载</option>
+                                <option value="2">翻译</option>
+                                <option value="3">其他</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-col-md11">
+                        <input autocomplete="off" class="layui-input" lay-verify="title" name="title"
+                               placeholder="请输入标题"
+                               type="text">
+                    </div>
+                </div>
+                <!--正文-->
+                <div id="md-content" style="z-index: 1">
+                    <!--                    <div class="layui-input-block">-->
+                    <!--                        <textarea class="layui-textarea" style="height: 500px" name="desc" placeholder="请输入内容"></textarea>-->
+                    <!--                    </div>-->
+                    <textarea style="display:none;" placeholder="markdown语言"></textarea>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layadmin-messag-icon">
+                        <!--表情-->
+                        <a href="javascript:"><i class="layui-icon layui-icon-face-smile-b"></i></a>
+                        <!--照片-->
+                        <a href="javascript:"><i class="layui-icon layui-icon-picture"></i></a>
+                        <!--附件-->
+                        <a href="javascript:"><i class="layui-icon layui-icon-link"></i></a>
+                    </div>
+                    <div class="layui-col-md1" style="margin-left: 50px">
+                        <label class="layui-btn layui-btn-primary" for="tags" style="background-color: #ebefe0"><i
+                                class="fas fa-tag m-icon-1"> 标签</i></label>
+                    </div>
+                    <div class="layui-col-md7" style="margin-right: 30px">
+                        <div class="layui-input-block" style="z-index: 0">
+                            <select id="tags" name="tags" xm-select="select6_3" xm-select-skin="normal">
+                                <option value="">请选择标签</option>
+                                <option selected="selected" value="1">Java</option>
+                                <option value="2">Python</option>
+                                <option value="3">Spring</option>
+                                <option selected="selected" value="4">SpringBoot</option>
+                                <option value="5">SpringCloud</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block layui-input-right">
+                        <button class="layui-btn layui-btn-normal" lay-filter="formDemo" lay-submit>发布</button>
+                    </div>
+                    <div class="layui-inline">
+                        <div class="layui-input-inline">
+                            <input checked id="shareInfo" lay-skin="primary" name="shareInfo" type="checkbox">
+                            <label class="m-font-size-l" for="shareInfo">转载声明</label>
+                        </div>
+                        <div class="layui-input-inline">
+                            <input checked id="recommend" lay-skin="primary" name="recommend" type="checkbox">
+                            <label class="m-font-size-l" for="shareInfo">推荐</label>
+                        </div>
+                        <div class="layui-input-inline">
+                            <input checked id="appreciate" lay-skin="primary" name="appreciate" type="checkbox">
+                            <label class="m-font-size-l" for="shareInfo">赞赏</label>
+                        </div>
+                        <div class="layui-input-inline">
+                            <input checked id="comment" lay-skin="primary" name="comment" type="checkbox">
+                            <label class="m-font-size-l" for="shareInfo">评论</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<!--<script th:src="@{admin/jquery.min.js}"></script>-->
+<!---->
+<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+
+<!--&lt;!&ndash; 预览时需要引入marked.js，否则报错 [ ReferenceError: marked is not defined ] &ndash;&gt;-->
+<!--<script src="https://pandao.github.io/editor.md/lib/marked.min.js"></script>-->
+<!--&lt;!&ndash; 预览时需要引入prettify.js，否则报错 [ ReferenceError: prettyPrint is not defined ] &ndash;&gt;-->
+<!--<script src="https://pandao.github.io/editor.md/lib/prettify.min.js"></script>-->
+<script th:src="@{admin/layui/layui.js}"></script>
+<script th:src="@{admin/editormd.min.js}"></script>
+<script type="text/javascript">
+    layui.config({
+        base: '../../static/admin/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }, {
+        formSelects: 'formSelects-v4'
+    }, {
+        editormd: 'editormd'
+    }).use(['index']);
+    layui.use(['layer', 'form', 'laydate', 'jquery', 'formSelects'], function () {
+        var $ = layui.jquery
+            , admin = layui.admin
+            , element = layui.element
+            , layer = layui.layer
+            , laydate = layui.laydate
+            , form = layui.form;
+
+        // var $ = layui.$;
+        var formSelects = layui.formSelects;
+
+        // 初始化Markdown编辑器
+        var testEditor;
+        $(function () {
+            testEditor = editormd("md-content", {
+                width: "100%",
+                height: 500,
+                syncScrolling: "single",
+                path: "../../static/admin/md/lib/"
+            });
+        });
+
+        form.render(null, 'component-form-group');
+
+        laydate.render({
+            elem: '#LAY-component-form-group-date'
+        });
+
+        /* 自定义验证规则 */
+        form.verify({
+            title: function (value) {
+                if (value.length < 5) {
+                    return '标题至少得5个字符啊';
+                }
+            }
+            , pass: [/(.+){6,12}$/, '密码必须6到12位']
+            , content: function (value) {
+                layedit.sync(editIndex);
+            }
+        });
+
+        /* 监听指定开关 */
+        form.on('switch(component-form-switchTest)', function (data) {
+            layer.msg('开关checked：' + (this.checked ? 'true' : 'false'), {
+                offset: '6px'
+            });
+            layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+        });
+
+        /* 监听提交 */
+        form.on('submit(component-form-demo1)', function (data) {
+            parent.layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            })
+            return false;
+        });
+        // form.verify({
+        //     name: function(value, item){
+        //         var param = {
+        //             name: $("#name").val()
+        //         }
+        //         console.log(param)
+        //         var checkResult = "";
+        //         $.ajax({
+        //             url: "/test",
+        //             type: "GET",
+        //             data: param,
+        //             async: false,
+        //             success: function(result) {
+        //                 if(result.code==200&&result.data){
+        //                     checkResult = "该名称已存在";
+        //                 }
+        //             },
+        //             error: function() {
+        //             }
+        //         });
+        //         return checkResult;
+        //     }
+        //
+        // });
+        // //添加角色。
+        // $.ajax({
+        //     type: "post",
+        //     url: "/test",
+        //     data: {page: 1, limit: 1000},
+        //     success: function (result) {
+        //
+        //         if (result.code == 200) {// qnId
+        //
+        //             $.each(result.data, function (i, v) {
+        //                 var data={};
+        //                 console.log(i+" : "+v.name);
+        //                 formSelects.data('roleid', 'local', {
+        //                     arr: [
+        //
+        //                         {"name": "北京", "value": 1},
+        //                         {"name": "上海", "value": 2},
+        //                         {"name": "分组-2", "type": "optgroup"},
+        //                         {"name": "xsw", "value": 3},
+        //                         {"name": "xxx", "value": 4},
+        //                         {"name": "roleid", "value": 5}
+        //                     ]
+        //                 });
+        //                 //   $("#roleid").append("<option value='" + v.id + "'>" + v.name + "</option>");
+        //             });
+        //             form.render('select');
+        //         }
+        //     }
+        // });
+        // form.on('submit(formDemo)', function (data) {
+        //     // layer.msg(JSON.stringify(data.field));
+        //     return false;
+        // });
+
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+﻿<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='Blog | Home'">
+
+<head th:replace="~{site/commons/commons::head(${title})}"></head>
+
+<body class="bg-pearl box-layout sticky-header">
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+<!-- ScrollUp Start Here 从这里开始滚动-->
+<a href="#wrapper" data-type="section-switch" class="scrollup">
+    <i class="fas fa-angle-double-up"></i>
+</a>
+<!-- ScrollUp End Here -->
+<!-- Preloader Start Here -->
+<div id="preloader"></div>
+<!-- Preloader End Here -->
+
+
+<div id="wrapper" class="wrapper">
+    <!-- Add your site or application content here -->
+    <!--头部 Header Area Start Here -->
+    <div th:replace="~{site/commons/commons::headerbar(active = 'index.html')}"></div>
+    <!--头部 Header Area End Here -->
+
+    <!--正文区 start-->
+    <div class="box-layout-child bg-white">
+        <!-- Slider Area Start Here 轮播图-->
+        <section class="slider-wrap-layout1">
+            <div class="container">
+                <!--轮播图-->
+                <div class="rc-carousel nav-control-layout1" data-loop="true" data-items="30" data-margin="30"
+                     data-autoplay="false" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false"
+                     data-nav="true" data-nav-speed="false" data-r-x-small="1" data-r-x-small-nav="true"
+                     data-r-x-small-dots="false" data-r-x-medium="1" data-r-x-medium-nav="true"
+                     data-r-x-medium-dots="false"
+                     data-r-small="1" data-r-small-nav="true" data-r-small-dots="false" data-r-medium="1"
+                     data-r-medium-nav="true" data-r-medium-dots="false" data-r-large="1" data-r-large-nav="true"
+                     data-r-large-dots="false" data-r-extra-large="1" data-r-extra-large-nav="true"
+                     data-r-extra-large-dots="false">
+                    <!--轮播1-->
+                    <div class="slider-box-layout1">
+                        <div class="item-img">
+                            <img src="site/img/slider/slide1-1.jpg" alt="slider">
+                        </div>
+                        <div class="item-content">
+                            <ul class="entry-meta meta-color-dark">
+                                <li><i class="fas fa-tag"></i>Fashion</li>
+                                <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                                <li><i class="fas fa-user"></i>BY <a href="#">Mark Willy</a></li>
+                                <li><i class="far fa-clock"></i>5 Mins Read</li>
+                            </ul>
+                            <h2 class="item-title"><a href="single-blog.html">Business Partners Work at Office 2019</a>
+                            </h2>
+                        </div>
+                    </div>
+                    <!--轮播2-->
+                    <div class="slider-box-layout1">
+                        <div class="item-img">
+                            <img src="site/img/slider/slide1-1.jpg" alt="slider">
+                            <div class="item-content">
+                                <ul class="entry-meta meta-color-dark">
+                                    <li><i class="fas fa-tag"></i>Fashion</li>
+                                    <li><i class="fas fa-calendar-alt"></i>Jan 19, 2020</li>
+                                    <li><i class="fas fa-user"></i>BY <a href="#">Mark Willy</a></li>
+                                    <li><i class="far fa-clock"></i>5 Mins Read</li>
+                                </ul>
+                                <h2 class="item-title"><a href="single-blog.html">Business Partners Work at Office
+                                    2019</a></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Slider Area End Here -->
+
+        <!-- Blog Area Start Here -->
+        <section class="blog-wrap-layout13">
+            <div class="container">
+                <div class="row gutters-40">
+                    <!--正文区-->
+                    <div class="col-xl-9 col-lg-8">
+                        <div class="blog-box-layout11">
+                            <div class="item-img">
+                                <a href="single-blog.html"><img src="site/img/blog/blog93.jpg" alt="blog"></a>
+                            </div>
+                            <div class="item-content">
+                                <ul class="entry-meta meta-color-dark">
+                                    <li><i class="fas fa-tag"></i>Stelite</li>
+                                    <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                                    <li><i class="far fa-clock"></i>5 Mins Read</li>
+                                </ul>
+                                <h3 class="item-title"><a href="single-blog.html">Pebble time steel is on track to ship
+                                    in January</a></h3>
+                                <p>Phasellus lorem ligula, semper vehicula dolor vitae eleifen deary mattis sem.
+                                    In hacBloggin GuideSed ut perspiciatis.</p>
+                                <ul class="response-area">
+                                    <li><a href="#"><img src="https://picsum.photos/id/1005/30" alt=""
+                                                         class="m-auth-img"> Mark Willy </a></li>
+                                    <li><a href="#"><i class="far fa-heart"></i>15</a></li>
+                                    <li><a href="#"><i class="far fa-comment"></i>02</a></li>
+                                </ul>
+                                <a href="single-blog.html" class="item-btn">READ MORE<i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="blog-box-layout11">
+                            <div class="item-img">
+                                <a href="single-blog.html"><img src="site/img/blog/blog93.jpg" alt="blog"></a>
+                            </div>
+                            <div class="item-content">
+                                <ul class="entry-meta meta-color-dark">
+                                    <li><i class="fas fa-tag"></i>Stelite</li>
+                                    <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                                    <li><i class="far fa-clock"></i>5 Mins Read</li>
+                                </ul>
+                                <h3 class="item-title"><a href="single-blog.html">Pebble time steel is on track to ship
+                                    in January</a></h3>
+                                <p>Phasellus lorem ligula, semper vehicula dolor vitae eleifen deary mattis sem.
+                                    In hacBloggin GuideSed ut perspiciatis.</p>
+                                <ul class="response-area">
+                                    <li><a href="#"><img src="https://picsum.photos/id/1005/30" alt=""
+                                                         class="m-auth-img"> Mark Willy </a></li>
+                                    <li><a href="#"><i class="far fa-heart"></i>15</a></li>
+                                    <li><a href="#"><i class="far fa-comment"></i>02</a></li>
+                                </ul>
+                                <a href="single-blog.html" class="item-btn">READ MORE<i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="blog-box-layout11">
+                            <div class="item-img">
+                                <a href="single-blog.html"><img src="site/img/blog/blog94.jpg" alt="blog"></a>
+                            </div>
+                            <div class="item-content">
+                                <ul class="entry-meta meta-color-dark">
+                                    <li><i class="fas fa-tag"></i>Software</li>
+                                    <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                                    <li><i class="far fa-clock"></i>5 Mins Read</li>
+                                </ul>
+                                <h3 class="item-title"><a href="single-blog.html">Of course Uber is working on a flying
+                                    car project</a></h3>
+                                <p>Phasellus lorem ligula, semper vehicula dolor vitae eleifen deary mattis sem.
+                                    In hacBloggin GuideSed ut perspiciatis.</p>
+                                <ul class="response-area">
+                                    <li><a href="#"><i class="far fa-heart"></i>15</a></li>
+                                    <li><a href="#"><i class="far fa-comment"></i>02</a></li>
+                                </ul>
+                                <a href="single-blog.html" class="item-btn">READ MORE<i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="blog-box-layout11">
+                            <div class="item-img">
+                                <a href="single-blog.html"><img src="site/img/blog/blog95.jpg" alt="blog"></a>
+                            </div>
+                            <div class="item-content">
+                                <ul class="entry-meta meta-color-dark">
+                                    <li><i class="fas fa-tag"></i>Camera</li>
+                                    <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                                    <li><i class="far fa-clock"></i>5 Mins Read</li>
+                                </ul>
+                                <h3 class="item-title"><a href="single-blog.html">The best action camera you can buy</a>
+                                </h3>
+                                <p>Phasellus lorem ligula, semper vehicula dolor vitae eleifen deary mattis sem.
+                                    In hacBloggin GuideSed ut perspiciatis.</p>
+                                <ul class="response-area">
+                                    <li><a href="#"><i class="far fa-heart"></i>15</a></li>
+                                    <li><a href="#"><i class="far fa-comment"></i>02</a></li>
+                                </ul>
+                                <a href="single-blog.html" class="item-btn">READ MORE<i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="blog-box-layout11">
+                            <div class="item-img">
+                                <a href="single-blog.html"><img src="site/img/blog/blog96.jpg" alt="blog"></a>
+                            </div>
+                            <div class="item-content">
+                                <ul class="entry-meta meta-color-dark">
+                                    <li><i class="fas fa-tag"></i>Server</li>
+                                    <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                                    <li><i class="far fa-clock"></i>5 Mins Read</li>
+                                </ul>
+                                <h3 class="item-title"><a href="single-blog.html">Pay for the power,not for the
+                                    design</a></h3>
+                                <p>Phasellus lorem ligula, semper vehicula dolor vitae eleifen deary mattis sem.
+                                    In hacBloggin GuideSed ut perspiciatis.</p>
+                                <ul class="response-area">
+                                    <li><a href="#"><i class="far fa-heart"></i>15</a></li>
+                                    <li><a href="#"><i class="far fa-comment"></i>02</a></li>
+                                </ul>
+                                <a href="single-blog.html" class="item-btn">READ MORE<i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="blog-box-layout11">
+                            <div class="item-img">
+                                <a href="single-blog.html"><img src="site/img/blog/blog97.jpg" alt="blog"></a>
+                            </div>
+                            <div class="item-content">
+                                <ul class="entry-meta meta-color-dark">
+                                    <li><i class="fas fa-tag"></i>Technology</li>
+                                    <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                                    <li><i class="far fa-clock"></i>5 Mins Read</li>
+                                </ul>
+                                <h3 class="item-title"><a href="single-blog.html">Feces could be the fuel of the future,
+                                    scientists say</a></h3>
+                                <p>Phasellus lorem ligula, semper vehicula dolor vitae eleifen deary mattis sem.
+                                    In hacBloggin GuideSed ut perspiciatis.</p>
+                                <ul class="response-area">
+                                    <li><a href="#"><i class="far fa-heart"></i>15</a></li>
+                                    <li><a href="#"><i class="far fa-comment"></i>02</a></li>
+                                </ul>
+                                <a href="single-blog.html" class="item-btn">READ MORE<i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="blog-box-layout11">
+                            <div class="item-img">
+                                <a href="single-blog.html"><img src="site/img/blog/blog98.jpg" alt="blog"></a>
+                            </div>
+                            <div class="item-content">
+                                <ul class="entry-meta meta-color-dark">
+                                    <li><i class="fas fa-tag"></i>It</li>
+                                    <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                                    <li><i class="far fa-clock"></i>5 Mins Read</li>
+                                </ul>
+                                <h3 class="item-title"><a href="single-blog.html">10 Bridal Bouquets You’ll Fall Inner
+                                    Love With</a></h3>
+                                <p>Phasellus lorem ligula, semper vehicula dolor vitae eleifen deary mattis sem.
+                                    In hacBloggin GuideSed ut perspiciatis.</p>
+                                <ul class="response-area">
+                                    <li><a href="#"><i class="far fa-heart"></i>15</a></li>
+                                    <li><a href="#"><i class="far fa-comment"></i>02</a></li>
+                                </ul>
+                                <a href="single-blog.html" class="item-btn">READ MORE<i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="pagination-layout1 m-margin-tb-3">
+                            <ul>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--右边栏-->
+                    <div th:replace="~{site/commons/commons::rightbar}"></div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Area End Here -->
+
+    </div>
+    <!--正文区 end-->
+
+    <!--底部 Footer Area Start Here -->
+    <div th:replace="~{site/commons/commons::footerbar}"></div>
+    <!-- Footer Area End Here -->
+
+    <!--非画布菜单（移动端） Offcanvas Menu Start -->
+    <div th:replace="~{site/commons/commons::offcanvas-menu}"></div>
+    <!-- Offcanvas Menu End -->
+
+</div>
+
+
+<!-- jquery-->
+<script src="site/js/jquery-3.3.1.min.js"></script>
+<!-- Plugins js -->
+<script src="site/js/plugins.js"></script>
+<!-- Popper js -->
+<script src="site/js/popper.min.js"></script>
+<!-- Bootstrap js -->
+<script src="http://cdn.bootstrapmb.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<!-- Owl Carousel js -->
+<script src="site/OwlCarousel/owl.carousel.min.js"></script>
+<!-- Smooth Scroll js -->
+<script src="site/js/jquery.magnific-popup.min.js"></script>
+<!-- Meanmenu js -->
+<script src="site/js/jquery.meanmenu.min.js"></script>
+<!-- Smooth Scroll js -->
+<script src="site/js/jquery.smoothscroll.min.js"></script>
+<!-- Main js -->
+<script src="site/js/main.js"></script>
+
+</body>
+
+</html>

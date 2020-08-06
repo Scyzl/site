@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!--头部标题+引用-->
+<head th:fragment="head(tilte)">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title th:text="${tilte}">Scy | Welcome</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="site/img/favicon.png">
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="site/css/normalize.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="site/css/main.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://cdn.bootstrapmb.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="site/css/fontawesome-all.min.css">
+    <!-- Flat Icon CSS -->
+    <link rel="stylesheet" href="site/font/flaticon.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="site/css/animate.min.css">
+    <!-- Popup CSS -->
+    <link rel="stylesheet" href="site/css/magnific-popup.css">
+    <!-- Meanmenu CSS -->
+    <link rel="stylesheet" href="site/css/meanmenu.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="site/OwlCarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="site/OwlCarousel/owl.theme.default.min.css">
+    <!--Prism CSS-->
+    <link rel="stylesheet" href="site/lib/prism/prism.css">
+    <!--TocBot CSS-->
+    <link rel="stylesheet" href="site/lib/tocbot/tocbot.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="site/css/style.css">
+    <!-- Modernize js -->
+    <script src="site/js/modernizr-3.6.0.min.js"></script>
+</head>
+
+<!--头部导航栏 Start Here -->
+<header class="has-mobile-menu" th:fragment="headerbar(active)">
+    <div id="rt-sticky-placeholder"></div>
+    <div id="header-menu" class="header-menu menu-layout1 box-layout-child bg--light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav id="dropdown" class="template-main-menu m-header-tb-mini">
+                        <ul>
+                            <li class="hide-on-mobile-menu">
+                                <a th:href="@{/site/}"><h5
+                                        th:class="${active == 'index.html'?'m-header-active m-bold':'m-bold'}"><i
+                                        class="fas fa-home" style="color: #6366ff"></i>&nbsp;HOME</h5></a>
+                            </li>
+                            <li class="hide-on-desktop-menu">
+                                <a th:href="@{/site/}"><h5
+                                        th:class="${active == 'index.html'?'m-header-active m-bold':'m-bold'}"><i
+                                        class="fas fa-home" style="color: #6366ff"></i>&nbsp;HOME</h5></a>
+                            </li>
+                            <!--                            <li>-->
+                            <!--                                <a class="" href="#"><h5 th:class="${active == 'actegories.html'?'m-header-active m-bold':'m-bold'}"><i class="fas fa-tasks"></i>&nbsp;CATEGORIES</h5></a>-->
+                            <!--                            </li>-->
+                            <li>
+                                <a th:href="@{/site/archives}"><h5
+                                        th:class="${active == 'archives.html'?'m-header-active m-bold':'m-bold'}"><i
+                                        class="fas fa-clock" style="color: #6366ff"></i>&nbsp;ARCHIVES</h5></a>
+                            </li>
+                            <li class="possition-static hide-on-mobile-menu">
+                                <a th:href="@{/site/tags}"><h5
+                                        th:class="${active == 'tags.html'?'m-header-active m-bold':'m-bold'}"><i
+                                        class="fas fa-tags" style="color: #6366ff"></i>&nbsp;TAGS</h5></a>
+                            </li>
+                            <li class="hide-on-desktop-menu">
+                                <a th:href="@{/site/tags}"><h5
+                                        th:class="${active == 'tags.html'?'m-header-active m-bold':'m-bold'}"><i
+                                        class="fas fa-tags" style="color: #6366ff"></i>&nbsp;TAGS</h5></a>
+                            </li>
+                            <li class="">
+                                <a th:href="@{/site/about}"><h5
+                                        th:class="${active == 'about.html'?'m-header-active m-bold':'m-bold'}"><i
+                                        class="fas fa-info-circle" style="color: #6366ff"></i>&nbsp;ABOUT</h5></a>
+                            </li>
+                            <li>
+                                <a th:href="@{/site/contact}"><h5
+                                        th:class="${active == 'contact.html'?'m-header-active m-bold':'m-bold'}"><i
+                                        class="fas fa-phone" style="color: #6366ff"></i>&nbsp;CONTACT</h5></a>
+                            </li>
+                            <li>
+                                <a href="#" title="Search">
+                                    <input type="text" value="" style="text-align: center;padding-bottom: 0px"
+                                           placeholder="Search ..."/>
+                                    &nbsp;<i class="fas fa-search" style="color: #6366ff"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href=""><h5 class="m-bold"><i class="fas fa-user" style="color: #6366ff"></i>&nbsp;ADMIN
+                                </h5></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--头部导航栏 End Here -->
+
+<!--右边栏 Start Here -->
+<div class="col-xl-3 col-lg-4 sidebar-widget-area sidebar-break-md" th:fragment="rightbar">
+    <div th:replace="~{site/commons/commons::rbar-tags}"></div>
+    <div th:replace="~{site/commons/commons::rbar-popular}"></div>
+    <div th:replace="~{site/commons/commons::rbar-featured}"></div>
+    <div th:replace="~{site/commons/commons::rbar-ad}"></div>
+    <div th:replace="~{site/commons/commons::rbar-subscribe}"></div>
+</div>
+
+<!--类别标签-->
+<div class="widget" th:fragment="rbar-tags">
+    <div class="section-heading heading-dark">
+        <h3 class="item-heading"><i class="fas fa-tags"></i> TAGS <a href="#"
+                                                                     style="font-size: medium;position: absolute;right: 0">
+            more <i class="fas fa-angle-double-right"></i></a>
+        </h3>
+    </div>
+    <div class="widget-categories">
+        <ul>
+            <li>
+                <a href="#"> <i class="fas fa-tag"></i> Beauty
+                    <span>(35)</span>
+                </a>
+            </li>
+            <li>
+                <a href="#"> <i class="fas fa-tag"></i> Fashion
+                    <span>(10)</span>
+                </a>
+            </li>
+            <li>
+                <a href="#"> <i class="fas fa-tag"></i> Food
+                    <span>(25)</span>
+                </a>
+            </li>
+            <li>
+                <a href="#"> <i class="fas fa-tag"></i> Life Style
+                    <span>(15)</span>
+                </a>
+            </li>
+            <li>
+                <a href="#"> <i class="fas fa-tag"></i> Travel
+                    <span>(22)</span>
+                </a>
+            </li>
+            <li>
+                <a href="#"> <i class="fas fa-tag"></i> Video
+                    <span>(18)</span>
+                </a>
+            </li>
+            <li>
+                <a href="#"> <i class="fas fa-tag"></i> Technology
+                    <span>(22)</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--标签-->
+<!--<div class="widget m-margin-tb-1" th:fragment="rbar-tags">-->
+<!--    <div class="section-heading heading-dark">-->
+<!--        <h3 class="item-heading"><i class="fas fa-tags"></i> TAGS<a href="#" style="font-size: medium;position: absolute;right: 0">-->
+<!--            more <i class="fas fa-angle-double-right"></i></a>-->
+<!--        </h3>-->
+<!--    </div>-->
+<!--    <div class="widget-instagram">-->
+<!--        <div class="item-box">-->
+<!--            <a href="#" class="tag"><i class="fas fa-tag"></i> Java <span>23</span> </a>-->
+<!--        </div>-->
+<!--        <div class="item-box">-->
+<!--            <a href="#" class="tag"><i class="fas fa-tag"></i> Python <span>23</span> </a>-->
+<!--        </div>-->
+<!--        <div class="item-box">-->
+<!--            <a href="#" class="tag"><i class="fas fa-tag"></i> Spring <span>23</span> </a>-->
+<!--        </div>-->
+<!--        <div class="item-box">-->
+<!--            <a href="#" class="tag"><i class="fas fa-tag"></i> SpringBoot <span>23</span> </a>-->
+<!--        </div>-->
+<!--        <div class="item-box">-->
+<!--            <a href="#" class="tag"><i class="fas fa-tag"></i> SpringCloud <span>23</span> </a>-->
+<!--        </div>-->
+<!--        <div class="item-box">-->
+<!--            <a href="#" class="tag"><i class="fas fa-tag"></i> Vue <span>23</span> </a>-->
+<!--        </div>-->
+<!--        <div class="item-box">-->
+<!--            <a href="#" class="tag"><i class="fas fa-tag"></i> Web <span>23</span> </a>-->
+<!--        </div>-->
+<!--        <div class="item-box">-->
+<!--            <a href="#" class="tag"><i class="fas fa-tag"></i> 数据结构 <span>23</span> </a>-->
+<!--        </div>-->
+<!--        <div class="item-box">-->
+<!--            <a href="#" class="tag"><i class="fas fa-tag"></i> 算法 <span>23</span> </a>-->
+<!--        </div>-->
+<!--        <div class="item-box">-->
+<!--            <a href="#" class="tag"><i class="fas fa-tag"></i> 算法 <span>23</span> </a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--热门帖子 or 最新推荐-->
+<div class="widget" th:fragment="rbar-popular">
+    <div class="section-heading heading-dark">
+        <h3 class="item-heading"><i class="fas fa-hourglass-start"></i> POPULAR POSTS</h3>
+    </div>
+    <div class="widget-latest">
+        <ul class="block-list">
+            <li class="single-item">
+                <div class="item-img">
+                    <a href="#"><img src="site/img/blog/blog12.jpg" alt="Post"></a>
+                    <div class="count-number">1</div>
+                </div>
+                <div class="item-content">
+                    <ul class="entry-meta meta-color-dark">
+                        <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                    </ul>
+                    <h4 class="item-title"><a href="#">Thoughtful Living in Los Angeles</a></h4>
+                </div>
+            </li>
+            <li class="single-item">
+                <div class="item-img">
+                    <a href="#"><img src="site/img/blog/blog13.jpg" alt="Post"></a>
+                    <div class="count-number">2</div>
+                </div>
+                <div class="item-content">
+                    <ul class="entry-meta meta-color-dark">
+                        <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                    </ul>
+                    <h4 class="item-title"><a href="#">Latest Trends in Opera Mini Design</a></h4>
+                </div>
+            </li>
+            <li class="single-item">
+                <div class="item-img">
+                    <a href="#"><img src="site/img/blog/blog14.jpg" alt="Post"></a>
+                    <div class="count-number">3</div>
+                </div>
+                <div class="item-content">
+                    <ul class="entry-meta meta-color-dark">
+                        <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                    </ul>
+                    <h4 class="item-title"><a href="#">Fully Loft Living in Island tortland</a></h4>
+                </div>
+            </li>
+            <li class="single-item">
+                <div class="item-img">
+                    <a href="#"><img src="site/img/blog/blog15.jpg" alt="Post"></a>
+                    <div class="count-number">4</div>
+                </div>
+                <div class="item-content">
+                    <ul class="entry-meta meta-color-dark">
+                        <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                    </ul>
+                    <h4 class="item-title"><a href="#">Thoughtful Living in Los Angeles</a></h4>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--特色文章-->
+<div class="widget" th:fragment="rbar-featured">
+    <div class="section-heading heading-dark">
+        <h3 class="item-heading"><i class="fas fa-star-and-crescent"></i> FEATURED ARTICLE</h3>
+    </div>
+    <div class="widget-featured-feed">
+        <div class="rc-carousel dot-control-layout1" data-loop="true" data-items="3"
+             data-margin="5" data-autoplay="false" data-autoplay-timeout="5000"
+             data-smart-speed="1000" data-dots="true" data-nav="false" data-nav-speed="false"
+             data-r-x-small="1" data-r-x-small-nav="false" data-r-x-small-dots="true"
+             data-r-x-medium="1" data-r-x-medium-nav="false" data-r-x-medium-dots="true"
+             data-r-small="1" data-r-small-nav="false" data-r-small-dots="true"
+             data-r-medium="1" data-r-medium-nav="false" data-r-medium-dots="true"
+             data-r-large="1" data-r-large-nav="false" data-r-large-dots="true"
+             data-r-extra-large="1" data-r-extra-large-nav="false" data-r-extra-large-dots="true">
+            <div class="featured-box-layout1">
+                <div class="item-img">
+                    <img src="site/img/blog/blog16.jpg" alt="Brand" class="img-fluid">
+                </div>
+                <div class="item-content">
+                    <span class="post-date">OCTOBER 19, 2018</span>
+                    <h5 class="item-title"><a href="single-blog.html">Dreamy Places will
+                        Never Get to Visit</a></h5>
+                </div>
+            </div>
+            <div class="featured-box-layout1">
+                <div class="item-img">
+                    <img src="site/img/blog/blog17.jpg" alt="Brand" class="img-fluid">
+                </div>
+                <div class="item-content">
+                    <span class="post-date">OCTOBER 19, 2018</span>
+                    <h5 class="item-title"><a href="single-blog.html">Dreamy Places will
+                        Never Get to Visit</a></h5>
+                </div>
+            </div>
+            <div class="featured-box-layout1">
+                <div class="item-img">
+                    <img src="site/img/blog/blog16.jpg" alt="Brand" class="img-fluid">
+                </div>
+                <div class="item-content">
+                    <span class="post-date">OCTOBER 19, 2018</span>
+                    <h5 class="item-title"><a href="single-blog.html">Dreamy Places will
+                        Never Get to Visit</a></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--广告-->
+<div class="widget" th:fragment="rbar-ad">
+    <div class="widget-ad">
+        <a href="#"><img th:src="@{site/img/figure/figure1.jpg}" alt="Ad" class="img-fluid"></a>
+    </div>
+</div>
+<!--订阅-->
+<div class="widget" th:fragment="rbar-subscribe">
+    <div class="widget-newsletter-subscribe">
+        <h3>Get Latest Updates</h3>
+        <p>Newsletter Subscribe</p>
+        <form class="newsletter-subscribe-form">
+            <div class="form-group">
+                <input type="text" placeholder="your e-mail address" class="form-control"
+                       name="email" data-error="E-mail field is required" required>
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group mb-none">
+                <button type="submit" class="item-btn">SUBSCRIBE</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--右边栏 End Here -->
+
+<!--底部 Start Here -->
+<footer class="footer-wrap-layout1" th:fragment="footerbar">
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-3 m-footer-border-right">
+                <div class="footer-box-layout1">
+                    <img src="site/img/blog/my_qq.jpg" alt="qq" class="footer-logo m-footer-qq-img">
+                </div>
+            </div>
+            <div class="col-lg-6 m-footer-border-right">
+                <h4 class="m-footer-text m-text-thin m-text-spaced m-text-lined"><i class="fas fa-calculator"></i> 小站统计
+                </h4>
+                <h5 class="m-footer-text m-text-thin m-text-spaced m-text-lined m-opacity-mini">文章总数：<span
+                        class="m-num">9999</span> 篇</h5>
+                <h5 class="m-footer-text m-text-thin m-text-spaced m-text-lined m-opacity-mini">累计访问：<span
+                        class="m-num">9999</span> 次</h5>
+                <h5 class="m-footer-text m-text-thin m-text-spaced m-text-lined m-opacity-mini">累计评论：<span
+                        class="m-num">9999</span> 条</h5>
+            </div>
+            <div class="col-lg-3">
+                <div class="footer-box-layout1">
+                    <h4 class="m-footer-text m-text-thin m-text-spaced m-text-lined"><i class="fas fa-link"></i> Linked
+                    </h4>
+                    <ul class="header-action-items">
+                        <li class="item-social-layout2"></li>
+                        <li class="item-social-layout2"></li>
+                        <li class="item-social-layout2"></li>
+                        <li class="item-social-layout2"><a href="#"><i class="fab fa-github"></i></a></li>
+                        <li class="item-social-layout2"><a href="#"><i class="fas fa-rss"></i></a></li>
+                        <li class="item-social-layout2"><a href="#"><i class="fas fa-cloud"></i></a></li>
+                        <li class="item-social-layout2"><a href="#"><i class="fab fa-codepen"></i></a></li>
+                    </ul>
+                    <br>
+                    <div class="copyright m-footer-text m-text-thin m-text-spaced m-text-lined m-opacity-mini">&nbsp;<i
+                            class="fas fa-at"></i> 2019 - 2020 Scy
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--底部 End Here -->
+
+<!--非画布菜单（移动端） Offcanvas Menu Start -->
+<div class="offcanvas-menu-wrap" id="offcanvas-wrap" data-position="left" th:fragment="offcanvas-menu">
+    <div class="offcanvas-content">
+        <div class="offcanvas-logo">
+            <a href="index.html"><img src="site/img/logo-dark2.png" alt="logo"></a>
+        </div>
+        <ul class="offcanvas-menu">
+            <li class="nav-item">
+                <a href="index.html">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a href="about.html">ABOUT</a>
+            </li>
+            <li class="nav-item">
+                <a href="blog-category1.html">CATEGORIES</a>
+            </li>
+            <li class="nav-item">
+                <a href="authors.html">AUTHORS</a>
+            </li>
+            <li class="nav-item">
+                <a href="archives1.html">ARCHIVE</a>
+            </li>
+            <li class="nav-item">
+                <a href="contact.html">CONTACT</a>
+            </li>
+        </ul>
+        <div class="offcanvas-footer">
+            <div class="item-title">Follow Me</div>
+            <ul class="offcanvas-social">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                <li><a href="#"><i class="fas fa-rss"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Offcanvas Menu End -->
+
+
+</html>

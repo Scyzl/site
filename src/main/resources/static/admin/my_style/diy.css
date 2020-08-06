@@ -1,0 +1,67 @@
+/* ==========================================================================
+                        admin-自定义样式
+   ========================================================================== */
+/*.m-margin-lr-1 {*/
+/*    text-align: left;*/
+/*    margin-left: 0;*/
+/*    margin-right: 0;*/
+/*}*/
+
+.m-margin-tb-1 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.m-icon-1 {
+    font-size: medium;
+    color: #6366ff;
+}
+
+.m-icon-2 {
+    font-size: larger;
+    font-weight: bolder;
+    color: #6366ff;
+}
+
+.m-font {
+    font-size: large;
+    color: #666;
+    line-height: 36px;
+    padding: 5px 0 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+}
+
+.m-font-1 {
+    font-size: medium;
+}
+
+.m-font-size-s {
+    font-size: small;
+}
+
+.m-font-size-m {
+    font-size: medium;
+}
+
+.m-font-size-l {
+    font-size: large;
+}
+
+.m-font-size-xl {
+    font-size: x-large;
+}
+
+.m-font-size-xxl {
+    font-size: xx-large;
+}
+
+.m-font-size-lr {
+    font-size: larger;
+}
+
+.m-center {
+    text-align: center;
+}
