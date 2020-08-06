@@ -1,0 +1,10 @@
+spring:
+  # 模板引擎
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    suffix: .html
+    enabled: true
+
+  profiles:
+    active: dev
