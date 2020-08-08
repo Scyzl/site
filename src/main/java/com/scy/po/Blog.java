@@ -27,7 +27,7 @@ public class Blog {
     private String title;           // 博客标题
     private String content;         // 博客内容
     private String topPicture;      // 顶部大图
-    private String flag;            // ?
+    private String flag;            // 原创、转载、翻译、其他；一篇博客只属于一种类型
     private Integer views;          // 访问/阅读数
     private boolean appreciate;     // 是否开启赞赏
     private boolean shareStatement; // 是否开启转载声明
@@ -48,7 +48,7 @@ public class Blog {
      * mappedBy这方定义JoinColumn/JoinTable总是失效的，不会建立对应的字段或者表。
      */
     @ManyToOne
-    private Type type;      // 原创、转载、翻译、其他；一篇博客只属于一种类型
+    private Type type;    // todo but not now: 分类
 
     /**
      * 级联： 我的理解是：给当前设置的实体操作另一个实体的权限。

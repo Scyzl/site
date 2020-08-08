@@ -9,183 +9,254 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" th:href="@{admin/layui/css/layui.css}" media="all">
-    <link rel="stylesheet" th:href="@{admin/style/admin.css}" media="all">
-    <link rel="stylesheet" th:href="@{admin/style/template.css}" media="all">
-    <link rel="stylesheet" th:href="@{admin/layui/css/formSelects-v4.css}">
-    <link rel="stylesheet" th:href="@{admin/my_style/diy.css}">
-    <link rel="stylesheet" th:href="@{site/css/fontawesome-all.min.css}">
-    <link rel="stylesheet" th:href="@{admin/md/css/editormd.css}"/>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" th:href="@{admin/css/app.min.css}">
+    <link rel="stylesheet" th:href="@{admin/bundles/summernote/summernote-bs4.css}">
+    <link rel="stylesheet" th:href="@{admin/bundles/jquery-selectric/selectric.css}">
+    <link rel="stylesheet" th:href="@{admin/bundles/bootstrap-social/bootstrap-social.css}">
+    <link rel="stylesheet" th:href="@{admin/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.css}">
+    <link rel="stylesheet" th:href="@{admin/bundles/datatables/datatables.min.css}">
+    <link rel="stylesheet" th:href="@{admin/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css}">
+    <link rel="stylesheet" th:href="@{admin/bundles/datatables/Select-1.2.4/css/select.bootstrap4.min.css}">
+    <!--editormd CSS-->
+    <link rel="stylesheet" th:href="@{admin/bundles/editormd/css/editormd.css}">
+    <!--formSelects-v4 CSS-->
+    <link rel="stylesheet" th:href="@{admin/bundles/formSelects/formSelects-v4.css}">
+    <!-- Template CSS -->
+    <link rel="stylesheet" th:href="@{admin/css/style.css}">
+    <link rel="stylesheet" th:href="@{admin/bundles/pretty-checkbox/pretty-checkbox.min.css}">
+    <link rel="stylesheet" th:href="@{admin/css/components.css}">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" th:href="@{admin/css/custom.css}">
+    <link rel='shortcut icon' type='image/x-icon' th:href="@{admin/img/favicon.ico}"/>
 </head>
 
 <!--头部导航区域-->
-<div class="layui-header" th:fragment="admin-header">
-    <!-- 头部区域 -->
-    <ul class="layui-nav layui-layout-left">
-        <li class="layui-nav-item layadmin-flexible" lay-unselect>
-            <a href="javascript:;" layadmin-event="flexible" title="侧边伸缩">
-                <i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i>
-            </a>
-        </li>
-        <li class="layui-nav-item layui-hide-xs" lay-unselect>
-            <a href="/site/" target="_blank" title="前台">
-                <i class="layui-icon layui-icon-website"></i>
-            </a>
-        </li>
-        <li class="layui-nav-item" lay-unselect>
-            <a href="javascript:;" layadmin-event="refresh" title="刷新">
-                <i class="layui-icon layui-icon-refresh-3"></i>
-            </a>
-        </li>
-        <li class="layui-nav-item layui-hide-xs" lay-unselect>
-            <input type="text" placeholder="搜索..." autocomplete="off" class="layui-input layui-input-search"
-                   layadmin-event="serach" lay-action="template/search.html?keywords=">
-        </li>
-    </ul>
-    <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
-
-        <li class="layui-nav-item" lay-unselect>
-            <a lay-href="app/message/index.html" layadmin-event="message" lay-text="消息中心">
-                <i class="layui-icon layui-icon-notice"></i>
-
-                <!-- 如果有新消息，则显示小圆点 -->
-                <span class="layui-badge-dot"></span>
-            </a>
-        </li>
-        <li class="layui-nav-item layui-hide-xs" lay-unselect>
-            <a href="javascript:;" layadmin-event="theme">
-                <i class="layui-icon layui-icon-theme"></i>
-            </a>
-        </li>
-        <li class="layui-nav-item layui-hide-xs" lay-unselect>
-            <a href="javascript:;" layadmin-event="note">
-                <i class="layui-icon layui-icon-note"></i>
-            </a>
-        </li>
-        <li class="layui-nav-item layui-hide-xs" lay-unselect>
-            <a href="javascript:;" layadmin-event="fullscreen">
-                <i class="layui-icon layui-icon-screen-full"></i>
-            </a>
-        </li>
-        <li class="layui-nav-item" lay-unselect>
-            <a href="javascript:;">
-                <cite>贤心</cite>
-            </a>
-            <dl class="layui-nav-child">
-                <dd><a lay-href="set/user/info.html">基本资料</a></dd>
-                <dd><a lay-href="set/user/password.html">修改密码</a></dd>
-                <hr>
-                <dd layadmin-event="logout" style="text-align: center;"><a>退出</a></dd>
-            </dl>
-        </li>
-
-        <li class="layui-nav-item layui-hide-xs" lay-unselect>
-            <a href="javascript:;" layadmin-event="about"><i class="layui-icon layui-icon-more-vertical"></i></a>
-        </li>
-        <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-unselect>
-            <a href="javascript:;" layadmin-event="more"><i class="layui-icon layui-icon-more-vertical"></i></a>
-        </li>
-    </ul>
-</div>
-
-<!-- 侧边菜单 -->
-<div class="layui-side layui-side-menu" th:fragment="admin-sidebar">
-    <div class="layui-side-scroll">
-        <div class="layui-logo" lay-href="home/console.html">
-            <span>Scy Admin</span>
-        </div>
-
-        <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu"
-            lay-filter="layadmin-system-side-menu">
-            <!--主页-->
-            <li data-name="home" class="layui-nav-item layui-nav-itemed">
-                <a href="javascript:;" lay-tips="主页" lay-direction="2">
-                    <i class="layui-icon layui-icon-home m-icon-3"></i>
-                    <cite>主页</cite>
-                </a>
-                <dl class="layui-nav-child">
-                    <dd data-name="console" class="layui-this">
-                        <a lay-href="/admin/console">控制台</a>
-                    </dd>
-                    <dd data-name="console">
-                        <a lay-href="/admin/home">主页</a>
-                    </dd>
-                </dl>
-            </li>
-
-            <li data-name="list" class="layui-nav-item layui-nav-itemed">
-                <a lay-href="/admin/list" lay-tips="文章列表" lay-direction="2">
-                    <i class="layui-icon layui-icon-list m-icon-3"></i>
-                    <cite>文章列表</cite>
-                </a>
-            </li>
-            <li data-name="article" class="layui-nav-item layui-nav-itemed">
-                <a lay-href="/admin/article" lay-tips="发布文章" lay-direction="2">
-                    <i class="layui-icon layui-icon-release m-icon-3"></i>
-                    <cite>发布文章</cite>
-                </a>
-            </li>
-            <li data-name="tags" class="layui-nav-item  layui-nav-itemed">
-                <a lay-href="/admin/tags" lay-tips="分类管理" lay-direction="2">
-                    <i class="layui-icon layui-icon-note m-icon-3"></i>
-                    <cite>分类管理</cite>
-                </a>
-            </li>
-            <li data-name="comment" class="layui-nav-item  layui-nav-itemed">
-                <a lay-href="/admin/comment" lay-tips="评论管理" lay-direction="2">
-                    <i class="layui-icon layui-icon-reply-fill m-icon-3"></i>
-                    <cite>评论管理</cite>
-                </a>
-            </li>
-            <li data-name="link" class="layui-nav-item  layui-nav-itemed">
-                <a lay-href="/admin/link" lay-tips="友链管理" lay-direction="2">
-                    <i class="layui-icon layui-icon-friends m-icon-3"></i>
-                    <cite>友链管理</cite>
-                </a>
-            </li>
-
-            <!--            <li data-name="user" class="layui-nav-item">-->
-            <!--                <a href="javascript:;" lay-tips="用户" lay-direction="2">-->
-            <!--                    <i class="layui-icon layui-icon-user"></i>-->
-            <!--                    <cite>用户</cite>-->
-            <!--                </a>-->
-            <!--                <dl class="layui-nav-child">-->
-            <!--                    <dd>-->
-            <!--                        <a lay-href="user/user/list.html">网站用户</a>-->
-            <!--                    </dd>-->
-            <!--                    <dd>-->
-            <!--                        <a lay-href="user/administrators/list.html">后台管理员</a>-->
-            <!--                    </dd>-->
-            <!--                    <dd>-->
-            <!--                        <a lay-href="user/administrators/role.html">角色管理</a>-->
-            <!--                    </dd>-->
-            <!--                </dl>-->
-            <!--            </li>-->
-            <li data-name="set" class="layui-nav-item">
-                <a href="javascript:;" lay-tips="设置" lay-direction="2">
-                    <i class="layui-icon layui-icon-set m-icon-3"></i>
-                    <cite>设置</cite>
-                </a>
-                <dl class="layui-nav-child">
-                    <dd class="layui-nav-itemed">
-                        <a href="javascript:;">系统设置</a>
-                        <dl class="layui-nav-child">
-                            <dd><a lay-href="set/system/website.html">网站设置</a></dd>
-                            <dd><a lay-href="set/system/email.html">邮件服务</a></dd>
-                        </dl>
-                    </dd>
-                    <dd class="layui-nav-itemed">
-                        <a href="javascript:;">我的设置</a>
-                        <dl class="layui-nav-child">
-                            <dd><a lay-href="set/user/info.html">基本资料</a></dd>
-                            <dd><a lay-href="set/user/password.html">修改密码</a></dd>
-                        </dl>
-                    </dd>
-                </dl>
+<nav class="navbar navbar-expand-lg main-navbar sticky" th:fragment="admin-headerbar">
+    <div class="form-inline mr-auto">
+        <ul class="navbar-nav mr-3">
+            <li><a class="nav-link nav-link-lg
+									collapse-btn" data-toggle="sidebar" href="#"> <i
+                    data-feather="align-justify"></i></a></li>
+            <li><a class="nav-link nav-link-lg fullscreen-btn" href="#">
+                <i data-feather="maximize"></i>
+            </a></li>
+            <li>
+                <form class="form-inline mr-auto">
+                    <div class="search-element">
+                        <input aria-label="Search" class="form-control" data-width="200" placeholder="Search"
+                               type="search">
+                        <button class="btn" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
             </li>
         </ul>
     </div>
+    <ul class="navbar-nav navbar-right">
+        <li class="dropdown dropdown-list-toggle"><a class="nav-link nav-link-lg message-toggle" data-toggle="dropdown"
+                                                     href="#"><i
+                data-feather="mail"></i>
+            <span class="badge headerBadge1">
+                6 </span> </a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+                <div class="dropdown-header">
+                    Messages
+                    <div class="float-right">
+                        <a href="#">Mark All As Read</a>
+                    </div>
+                </div>
+                <div class="dropdown-list-content dropdown-list-message">
+                    <a class="dropdown-item" href="#"> <span class="dropdown-item-avatar
+											text-white"> <img alt="image" class="rounded-circle"
+                                                              src="admin/img/users/user-1.png">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">John
+                      Deo</span>
+                    <span class="time messege-text">Please check your mail !!</span>
+                    <span class="time">2 Min Ago</span>
+                  </span>
+                    </a> <a class="dropdown-item" href="#"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" class="rounded-circle" src="admin/img/users/user-2.png">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
+                      Smith</span> <span class="time messege-text">Request for leave
+                      application</span>
+                    <span class="time">5 Min Ago</span>
+                  </span>
+                </a> <a class="dropdown-item" href="#"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" class="rounded-circle" src="admin/img/users/user-5.png">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Jacob
+                      Ryan</span> <span class="time messege-text">Your payment invoice is
+                      generated.</span> <span class="time">12 Min Ago</span>
+                  </span>
+                </a> <a class="dropdown-item" href="#"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" class="rounded-circle" src="admin/img/users/user-4.png">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Lina
+                      Smith</span> <span class="time messege-text">hii John, I have upload
+                      doc
+                      related to task.</span> <span class="time">30
+                      Min Ago</span>
+                  </span>
+                </a> <a class="dropdown-item" href="#"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" class="rounded-circle" src="admin/img/users/user-3.png">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Jalpa
+                      Joshi</span> <span class="time messege-text">Please do as specify.
+                      Let me
+                      know if you have any query.</span> <span class="time">1
+                      Days Ago</span>
+                  </span>
+                </a> <a class="dropdown-item" href="#"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" class="rounded-circle" src="admin/img/users/user-2.png">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
+                      Smith</span> <span class="time messege-text">Client Requirements</span>
+                    <span class="time">2 Days Ago</span>
+                  </span>
+                </a>
+                </div>
+                <div class="dropdown-footer text-center">
+                    <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="dropdown dropdown-list-toggle"><a class="nav-link notification-toggle nav-link-lg"
+                                                     data-toggle="dropdown"
+                                                     href="#"><i
+                class="bell" data-feather="bell"></i>
+        </a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+                <div class="dropdown-header">
+                    Notifications
+                    <div class="float-right">
+                        <a href="#">Mark All As Read</a>
+                    </div>
+                </div>
+                <div class="dropdown-list-content dropdown-list-icons">
+                    <a class="dropdown-item dropdown-item-unread" href="#"> <span
+                            class="dropdown-item-icon bg-primary text-white"> <i class="fas
+												fa-code"></i>
+                  </span> <span class="dropdown-item-desc"> Template update is
+                    available now! <span class="time">2 Min
+                      Ago</span>
+                  </span>
+                    </a> <a class="dropdown-item" href="#"> <span class="dropdown-item-icon bg-info text-white"> <i
+                        class="far
+												fa-user"></i>
+                  </span> <span class="dropdown-item-desc"> <b>You</b> and <b>Dedik
+                      Sugiharto</b> are now friends <span class="time">10 Hours
+                      Ago</span>
+                  </span>
+                </a> <a class="dropdown-item" href="#"> <span class="dropdown-item-icon bg-success text-white"> <i
+                        class="fas
+												fa-check"></i>
+                  </span> <span class="dropdown-item-desc"> <b>Kusnaedi</b> has
+                    moved task <b>Fix bug header</b> to <b>Done</b> <span class="time">12
+                      Hours
+                      Ago</span>
+                  </span>
+                </a> <a class="dropdown-item" href="#"> <span
+                        class="dropdown-item-icon bg-danger text-white"> <i
+                        class="fas fa-exclamation-triangle"></i>
+                  </span> <span class="dropdown-item-desc"> Low disk space. Let's
+                    clean it! <span class="time">17 Hours Ago</span>
+                  </span>
+                </a> <a class="dropdown-item" href="#"> <span class="dropdown-item-icon bg-info text-white"> <i
+                        class="fas
+												fa-bell"></i>
+                  </span> <span class="dropdown-item-desc"> Welcome to Zivi
+                    template! <span class="time">Yesterday</span>
+                  </span>
+                </a>
+                </div>
+                <div class="dropdown-footer text-center">
+                    <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="dropdown"><a class="nav-link dropdown-toggle nav-link-lg nav-link-user" data-toggle="dropdown"
+                                href="#"> <img alt="image"
+                                               class="user-img-radious-style"
+                                               src="admin/img/user.png">
+            <span class="d-sm-none d-lg-inline-block"></span></a>
+            <div class="dropdown-menu dropdown-menu-right pullDown">
+                <div class="dropdown-title">Hello Scy</div>
+                <!--th:text="Hello + ${#request.session.getAttribute('user')['username']}"-->
+                <a class="dropdown-item has-icon" href="profile.html"> <i class="far
+										fa-user"></i> Profile
+                </a> <a class="dropdown-item has-icon" href="timeline.html"> <i class="fas fa-bolt"></i>
+                Activities
+            </a> <a class="dropdown-item has-icon" href=""> <i class="fas fa-cog"></i>
+                Settings
+            </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item has-icon text-danger" th:href="@{/admin/logout}"> <i
+                        class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<!-- 侧边菜单 -->
+<div class="main-sidebar sidebar-style-2" th:fragment="admin-sidebar(active)">
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-user">
+            <div class="sidebar-user-picture">
+                <img alt="image" src="admin/img/user.png">
+            </div>
+            <div class="sidebar-user-details">
+                <div class="user-name">Scy</div>
+                <div class="user-role">Administrator</div>
+            </div>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-header">Main</li>
+            <li th:class="${active=='home'}? 'dropdown active' : 'dropdown'">
+                <a class="menu-toggle nav-link" th:href="@{/admin/}">
+                    <i data-feather="monitor"></i><span>主页</span></a>
+            </li>
+            <li th:class="${active=='blogs'}? 'dropdown active' : 'dropdown'">
+                <a class="menu-toggle nav-link" th:href="@{/admin/blogs}"><i
+                        data-feather="briefcase"></i><span>博客列表</span></a>
+            </li>
+            <li th:class="${active=='post'}? 'dropdown active' : 'dropdown'">
+                <a class="menu-toggle nav-link" th:href="@{/admin/post}"><i
+                        data-feather="command"></i><span>发布博客</span></a>
+            </li>
+            <li th:class="${active=='types'}? 'dropdown active' : 'dropdown'">
+                <a class="menu-toggle nav-link" th:href="@{/admin/types}"><i
+                        data-feather="mail"></i><span>分类管理</span></a>
+            </li>
+            <li th:class="${active=='tags'}? 'dropdown active' : 'dropdown'">
+                <a class="menu-toggle nav-link" th:href="@{/admin/tags}"><i
+                        data-feather="mail"></i><span>标签管理</span></a>
+            </li>
+            <li th:class="${active=='comments'}? 'dropdown active' : 'dropdown'">
+                <a class="menu-toggle nav-link" th:href="@{/admin/comments}"><i
+                        data-feather="mail"></i><span>评论管理</span></a>
+            </li>
+            <li th:class="${active=='friends'}? 'dropdown active' : 'dropdown'">
+                <a class="menu-toggle nav-link" href="#"><i
+                        data-feather="mail"></i><span>友链管理</span></a>
+            </li>
+            <li class="menu-header">Settings</li>
+            <li th:class="${active=='settings'}? 'dropdown active' : 'dropdown'">
+                <a class="menu-toggle nav-link" href="#"><i
+                        data-feather="mail"></i><span>设置</span></a>
+            </li>
+        </ul>
+    </aside>
 </div>
 
+<!--底部声明-->
+<footer class="main-footer" th:fragment="admin-footer">
+    <div class="footer-left">
+        Copyright &copy; 2020
+        <div class="bullet"></div>
+        Design By <a href="http://www.bootstrapmb.com/">Scy</a>
+    </div>
+    <div class="footer-right">
+    </div>
+</footer>
 
 </html>

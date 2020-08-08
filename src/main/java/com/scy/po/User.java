@@ -25,11 +25,11 @@ public class User {
     @GeneratedValue
     private Long id;
     private String nickname;
-    private String name;
+    private String username;
     private String password;
     private String email;
     private String avatar;      // 头像
-    private Integer type;
+    private Integer role;       // 角色：1-管理员；0-访客
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
     @Temporal(TemporalType.TIMESTAMP)
