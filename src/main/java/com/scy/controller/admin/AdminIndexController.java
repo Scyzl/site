@@ -56,11 +56,6 @@ public class AdminIndexController {
         return "admin/list_blog";
     }
 
-    @GetMapping("/types")
-    public String types() {
-        return "admin/list_type";
-    }
-
     @GetMapping("/comments")
     public String comments() {
         return "admin/list_comment";

@@ -26,11 +26,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/admin/tags/**").addResourceLocations("classpath:/static/admin/");
         registry.addResourceHandler("/admin/tags/add/**").addResourceLocations("classpath:/static/admin/");
         registry.addResourceHandler("/admin/tags/delete/**").addResourceLocations("classpath:/static/admin/");
-//        registry.addResourceHandler("/admin/login/**").addResourceLocations("classpath:/static/admin/");
-//        registry.addResourceHandler("/admin/tags/admin/**").addResourceLocations("classpath:/static/admin/");
-//        registry.addResourceHandler("/admin/tags/admin/**").addResourceLocations("classpath:/static/admin/");
-//        registry.addResourceHandler("/admin/site/**").addResourceLocations("classpath:/static/site/");
-//        registry.addResourceHandler("/admin/error/**").addResourceLocations("classpath:/static/site/");
+        registry.addResourceHandler("/admin/types/**").addResourceLocations("classpath:/static/admin/");
+        registry.addResourceHandler("/admin/types/add/**").addResourceLocations("classpath:/static/admin/");
+        registry.addResourceHandler("/admin/types/delete/**").addResourceLocations("classpath:/static/admin/");
+        registry.addResourceHandler("/admin/login/**").addResourceLocations("classpath:/static/admin/");
+        registry.addResourceHandler("/admin/error/**").addResourceLocations("classpath:/static/site/");
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
 
     }
