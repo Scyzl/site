@@ -88,18 +88,19 @@
                                     <!--分页-->
                                     <nav class="d-inline-block ml-5" th:if="${page.numberOfElements > 0}">
                                         <ul class="pagination mb-0">
-                                            <li class="page-item">
-                                                <a th:class="${page.hasPrevious()? 'btn page-link' : 'btn page-link disabled'}"
-                                                   th:href="@{/admin/tags(page=${page.number}-1)}" tabindex="-1"><i
+                                            <li th:class="${page.first? 'page-item disabled' : 'page-item'}">
+                                                <a class="page-link"
+                                                   th:href="@{/admin/tags(page=${page.number}-1)}" tabindex="0"><i
                                                         class="fas fa-chevron-left"></i></a>
                                             </li>
-                                            <li th:each="i:${#numbers.sequence(1,page.totalPages)}">
-                                                <a th:class="${i==page.number+1? 'btn page-link active disabled' : 'btn page-link'}"
+                                            <li th:each="i:${#numbers.sequence(1,page.totalPages)}"
+                                                th:class="${i==page.number+1? 'page-item active disabled' : 'page-item'}">
+                                                <a class="page-link" style="color: #464646"
                                                    th:href="@{/admin/tags(page=${page.number}+${i}-${page.number}-1)}"
                                                    th:text="${i}">1</a>
                                             </li>
-                                            <li class="page-item">
-                                                <a th:class="${page.hasNext()? 'btn page-link' : 'btn page-link disabled'}"
+                                            <li th:class="${page.last? 'page-item disabled' : 'page-item'}">
+                                                <a class="page-link"
                                                    th:href="@{/admin/tags(page=${page.number}+1)}"><i
                                                         class="fas fa-chevron-right"></i></a>
                                             </li>

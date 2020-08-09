@@ -21,7 +21,7 @@
                             <div class="card">
                                 <form id="addTag" method="post" class="needs-validation" novalidate=""
                                       th:object="${tag}"
-                                      th:action="@{/admin/tags/add/{id}/(id=${tag.id>0?tag.id: -1})}">
+                                      th:action="@{/admin/tags/add/{id}(id=${tag.id>0?tag.id: -1})}">
                                     <div class="card-header">
                                         <h4>添加/修改标签</h4>
                                     </div>
