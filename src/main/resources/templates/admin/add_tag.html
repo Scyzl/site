@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en" th:with="title = 'Add'" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{admin/commons/commons::admin-head(${title})}"></head>
+
+<body>
+<div class="loader"></div>
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <!--顶部-->
+        <div class="navbar-bg"></div>
+        <nav th:replace="~{admin/commons/commons::admin-headerbar}"></nav>
+        <!--侧边栏-->
+        <div th:replace="~{admin/commons/commons::admin-sidebar(active='add')}"></div>
+        <!-- Main Content -->
+        <div class="main-content">
+            <section class="section">
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <form id="addTag" method="post" class="needs-validation" novalidate=""
+                                      th:object="${tag}"
+                                      th:action="@{/admin/tags/add/{id}/(id=${tag.id>0?tag.id: -1})}">
+                                    <div class="card-header">
+                                        <h4>添加/修改标签</h4>
+                                    </div>
+                                    <div class="card-body col-md-10 m-auto text-center"
+                                         th:if="${#fields.hasErrors('name')}">
+                                        <div class="col-md-6 m-auto alert alert-danger alert-has-icon alert-dismissible show fade">
+                                            <button class="close" data-dismiss="alert">
+                                                <span>&times;</span>
+                                            </button>
+                                            <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                                            <div class="alert-body">
+                                                <div class="alert-title">验证失败</div>
+                                                <p th:errors="*{name}" style="color: white">提交信息不符合规则！</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group row mb-4">
+                                            <div class="col-sm-12 col-md-7 m-auto">
+                                                <input id="name" class="form-control" name="name" th:value="*{name}"
+                                                       placeholder="请输入标签名称" type="text" required="">
+                                                <div class="invalid-feedback">
+                                                    此为必填字段，请输入标签名称！
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer row mb-4">
+                                        <!--                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>-->
+                                        <div class="col-sm-12 col-md-2 m-auto">
+                                            <a class="btn btn-outline-primary mr-1 font-weight-bold font-14"
+                                               onclick="window.history.go(-1)">返回</a>
+                                            <button class="btn btn-outline-primary font-weight-bold font-14">提交</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--设置板-->
+            <div th:replace="~{admin/commons/commons::admin-settingbar}"></div>
+        </div>
+        <!--底部-->
+        <footer th:replace="~{admin/commons/commons::admin-footer}"></footer>
+    </div>
+</div>
+<!-- General JS Scripts -->
+<script th:src="@{js/app.min.js}"></script>
+<!--&lt;!&ndash; JS Libraies &ndash;&gt;-->
+<!--<script th:src="@{bundles/summernote/summernote-bs4.js}"></script>-->
+<!--<script th:src="@{bundles/jquery-selectric/jquery.selectric.min.js}"></script>-->
+<!--<script th:src="@{bundles/jquery-ui/jquery-ui.min.js}"></script>-->
+<!--<script th:src="@{bundles/upload-preview/assets/js/jquery.uploadPreview.min.js}"></script>-->
+<!--<script th:src="@{bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js}"></script>-->
+<!--&lt;!&ndash; Page Specific JS File &ndash;&gt;-->
+<!--<script th:src="@{js/page/create-post.js}"></script>-->
+<!-- Template JS File -->
+<script th:src="@{js/scripts.js}"></script>
+<!-- Custom JS File -->
+<script th:src="@{js/custom.js}"></script>
+
+</body>
+
+</html>

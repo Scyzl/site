@@ -1,0 +1,416 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title = 'Home'">
+
+<head th:replace="~{admin/commons/commons::admin-head(${title})}"></head>
+
+<body>
+<div class="loader"></div>
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <!--顶部-->
+        <div class="navbar-bg"></div>
+        <nav th:replace="~{admin/commons/commons::admin-headerbar}"></nav>
+        <!--侧边栏-->
+        <div th:replace="~{admin/commons/commons::admin-sidebar(active='home')}"></div>
+        <!-- Main Content -->
+        <div class="main-content">
+            <!--正文-->
+            <section class="section">
+                <ul class="breadcrumb breadcrumb-style ">
+                    <li class="breadcrumb-item">
+                        <h4 class="page-title m-b-0">Home</h4>
+                    </li>
+                </ul>
+                <!--顶部数据展示卡片-->
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="card-statistic-4">
+                                <div class="info-box7-block">
+                                    <h6 class="m-b-20 text-right">发布量</h6>
+                                    <h4 class="text-right"><i
+                                            class="fas fa-cart-plus pull-left bg-indigo c-icon"></i><span>7.12K</span>
+                                    </h4>
+                                    <p class="mb-0 mt-3 text-muted"><i
+                                            class="fas fa-arrow-circle-up col-green m-r-5"></i><span
+                                            class="text-success font-weight-bold">23%</span> then previous month</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="card-statistic-4">
+                                <div class="info-box7-block">
+                                    <h6 class="m-b-20 text-right">访问量</h6>
+                                    <h4 class="text-right"><i class="fas fa-users pull-left bg-cyan c-icon"></i><span>22.3K</span>
+                                    </h4>
+                                    <p class="mb-0 mt-3 text-muted"><i class="fas fa-arrow-circle-up col-red m-r-5"></i><span
+                                            class="col-red font-weight-bold">3%</span> then previous month</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="card-statistic-4">
+                                <div class="info-box7-block">
+                                    <h6 class="m-b-20 text-right">评论数</h6>
+                                    <h4 class="text-right"><i
+                                            class="fas fa-ticket-alt pull-left bg-deep-orange c-icon"></i><span>725</span>
+                                    </h4>
+                                    <p class="mb-0 mt-3 text-muted"><i
+                                            class="fas fa-arrow-circle-up col-green m-r-5"></i><span
+                                            class="text-success font-weight-bold">21%</span> then previous month</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="card-statistic-4">
+                                <div class="info-box7-block">
+                                    <h6 class="m-b-20 text-right">友链数</h6>
+                                    <h4 class="text-right"><i
+                                            class="fas fa-dollar-sign pull-left bg-green c-icon"></i><span>$3.58M</span>
+                                    </h4>
+                                    <p class="mb-0 mt-3 text-muted"><i
+                                            class="fas fa-arrow-circle-down col-red m-r-5"></i><span
+                                            class="col-red font-weight-bold">05%</span> then previous month</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>最新发布</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="activity-scroll">
+                                    <ul class="activity-list">
+                                        <li><i class="activity-icon bg-success"></i>
+                                            <h6>Order Placed<small class="float-right text-muted">11 March 2019</small>
+                                            </h6>
+                                            <span class="font-12">Order ID: #8547</span>
+                                        </li>
+                                        <li><i class="activity-icon bg-info"></i>
+                                            <h6>Order Accept<small class="float-right text-muted tx-11">11 March
+                                                2019</small></h6> <span
+                                                    class="font-12">Order ID: #8547</span>
+                                        </li>
+                                        <li><i class="activity-icon bg-red"></i>
+                                            <h6>Ready For Dispatched<small class="float-right text-muted tx-11">12 March
+                                                2019</small></h6>
+                                            <span class="font-12">Order ID: #8547</span>
+                                        </li>
+                                        <li><i class="activity-icon bg-primary"></i>
+                                            <h6>Order Shipped<small class="float-right text-muted tx-11">14 March
+                                                2019</small></h6>
+                                            <span class="font-12">Tracking ID: ED8597587</span>
+                                        </li>
+                                        <li><i class="activity-icon bg-orange"></i>
+                                            <h6>Product Delivered<small class="float-right text-muted tx-11">16 March
+                                                2019</small></h6>
+                                            <span class="font-12">Receiver Name: John</span>
+                                        </li>
+                                        <li><i class="activity-icon bg-green"></i>
+                                            <h6>Product Return<small class="float-right text-muted tx-11">18 March
+                                                2019</small></h6>
+                                            <span class="font-12">Receiver Name: Sarah</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>最新评论</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="support-scroll">
+                                    <ul class="list-unstyled ">
+                                        <li class="media border-bottom m-b-10 support-ticket">
+                                            <img alt="image" class="mr-3 user-img" src="img/users/user-5.png"
+                                                 width="40">
+                                            <div class="media-body">
+                                                <div class="media-right">
+                                                    <i class="far fa-thumbs-up col-blue"></i>
+                                                    <i class="far fa-thumbs-down col-red"></i>
+                                                </div>
+                                                <div class="media-title mb-1">Alis Smith</div>
+                                                <div class="text-muted font-12">05 March 2019</div>
+                                                <div class="media-description">Duis aute irure dolor in voluptate velit
+                                                    esse
+                                                    cillum dolore.
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="media border-bottom m-b-10 support-ticket">
+                                            <img alt="image" class="mr-3 user-img" src="img/users/user-7.png"
+                                                 width="40">
+                                            <div class="media-body">
+                                                <div class="media-right">
+                                                    <i class="far fa-thumbs-up col-blue"></i>
+                                                    <i class="far fa-thumbs-down col-red"></i>
+                                                </div>
+                                                <div class="media-title mb-1">Pooja Sarma</div>
+                                                <div class="text-muted font-12">05 March 2019</div>
+                                                <div class="media-description">Duis aute irure dolor in voluptate velit
+                                                    esse
+                                                    cillum dolore.
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="media border-bottom m-b-10 support-ticket">
+                                            <img alt="image" class="mr-3 user-img" src="img/users/user-1.png"
+                                                 width="40">
+                                            <div class="media-body">
+                                                <div class="media-right">
+                                                    <i class="far fa-thumbs-up col-blue"></i>
+                                                    <i class="far fa-thumbs-down col-red"></i>
+                                                </div>
+                                                <div class="media-title mb-1">John Deo</div>
+                                                <div class="text-muted font-12">05 March 2019</div>
+                                                <div class="media-description">Duis aute irure dolor in voluptate velit
+                                                    esse
+                                                    cillum dolore.
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="media border-bottom m-b-10 support-ticket">
+                                            <img alt="image" class="mr-3 user-img" src="img/users/user-8.png"
+                                                 width="40">
+                                            <div class="media-body">
+                                                <div class="media-right">
+                                                    <i class="far fa-thumbs-up col-blue"></i>
+                                                    <i class="far fa-thumbs-down col-red"></i>
+                                                </div>
+                                                <div class="media-title mb-1">Cara Stevens</div>
+                                                <div class="text-muted font-12">12 April 2019</div>
+                                                <div class="media-description">Duis aute irure dolor in voluptate velit
+                                                    esse
+                                                    cillum dolore.
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="media border-bottom m-b-10 support-ticket">
+                                            <img alt="image" class="mr-3 user-img" src="img/users/user-2.png"
+                                                 width="40">
+                                            <div class="media-body">
+                                                <div class="media-right">
+                                                    <i class="far fa-thumbs-up col-blue"></i>
+                                                    <i class="far fa-thumbs-down col-red"></i>
+                                                </div>
+                                                <div class="media-title mb-1">Priya Mehta</div>
+                                                <div class="text-muted font-12">19 May 2019</div>
+                                                <div class="media-description">Duis aute irure dolor in voluptate velit
+                                                    esse
+                                                    cillum dolore.
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>系统日志</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="media-list position-relative">
+                                    <div class="table-responsive" id="project-team-scroll">
+                                        <table class="table table-hover table-xl mb-0">
+                                            <thead>
+                                            <tr>
+                                                <th class="border-top-0">Project Name</th>
+                                                <th class="border-top-0">Employees</th>
+                                                <th class="border-top-0">Cost</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td class="text-truncate">Project X</td>
+                                                <td class="text-truncate">
+                                                    <ul class="list-unstyled order-list m-b-0 m-b-0">
+                                                        <li class="team-member team-member-sm"><img
+                                                                alt="user"
+                                                                class="rounded-circle"
+                                                                data-original-title="Wildan Ahdian"
+                                                                data-toggle="tooltip" src="img/users/user-8.png"
+                                                                title=""></li>
+                                                        <li class="team-member team-member-sm"><img
+                                                                alt="user"
+                                                                class="rounded-circle" data-original-title="John Deo"
+                                                                data-toggle="tooltip" src="img/users/user-9.png"
+                                                                title=""></li>
+                                                        <li class="team-member team-member-sm"><img
+                                                                alt="user"
+                                                                class="rounded-circle" data-original-title="Sarah Smith"
+                                                                data-toggle="tooltip" src="img/users/user-10.png"
+                                                                title=""></li>
+                                                        <li class="avatar avatar-sm"><span class="badge badge-primary">+3</span>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                                <td class="text-truncate">$8999</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-truncate">Project AB2</td>
+                                                <td class="text-truncate">
+                                                    <ul class="list-unstyled order-list m-b-0 m-b-0">
+                                                        <li class="team-member team-member-sm"><img
+                                                                alt="user"
+                                                                class="rounded-circle"
+                                                                data-original-title="Wildan Ahdian"
+                                                                data-toggle="tooltip" src="img/users/user-1.png"
+                                                                title=""></li>
+                                                        <li class="team-member team-member-sm"><img
+                                                                alt="user"
+                                                                class="rounded-circle" data-original-title="John Deo"
+                                                                data-toggle="tooltip" src="img/users/user-3.png"
+                                                                title=""></li>
+                                                        <li class="team-member team-member-sm"><img
+                                                                alt="user"
+                                                                class="rounded-circle" data-original-title="Sarah Smith"
+                                                                data-toggle="tooltip" src="img/users/user-2.png"
+                                                                title=""></li>
+                                                        <li class="avatar avatar-sm"><span class="badge badge-primary">+1</span>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                                <td class="text-truncate">$5550</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-truncate">Project DS3</td>
+                                                <td class="text-truncate">
+                                                    <ul class="list-unstyled order-list m-b-0 m-b-0">
+                                                        <li class="team-member team-member-sm"><img
+                                                                alt="user"
+                                                                class="rounded-circle"
+                                                                data-original-title="Wildan Ahdian"
+                                                                data-toggle="tooltip" src="img/users/user-5.png"
+                                                                title=""></li>
+                                                        <li class="team-member team-member-sm"><img
+                                                                alt="user"
+                                                                class="rounded-circle" data-original-title="Sarah Smith"
+                                                                data-toggle="tooltip" src="img/users/user-9.png"
+                                                                title=""></li>
+                                                        <li class="avatar avatar-sm"><span class="badge badge-primary">+4</span>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                                <td class="text-truncate">$9000</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-truncate">Project XCD</td>
+                                                <td class="text-truncate">
+                                                    <ul class="list-unstyled order-list m-b-0 m-b-0">
+                                                        <li class="team-member team-member-sm"><img
+                                                                alt="user"
+                                                                class="rounded-circle"
+                                                                data-original-title="Wildan Ahdian"
+                                                                data-toggle="tooltip" src="img/users/user-8.png"
+                                                                title=""></li>
+                                                        <li class="team-member team-member-sm"><img
+                                                                alt="user"
+                                                                class="rounded-circle" data-original-title="John Deo"
+                                                                data-toggle="tooltip" src="img/users/user-3.png"
+                                                                title=""></li>
+                                                        <li class="team-member team-member-sm"><img
+                                                                alt="user"
+                                                                class="rounded-circle" data-original-title="Sarah Smith"
+                                                                data-toggle="tooltip" src="img/users/user-5.png"
+                                                                title=""></li>
+                                                        <li class="avatar avatar-sm"><span class="badge badge-primary">+2</span>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                                <td class="text-truncate">$7500</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-truncate">Project Z2</td>
+                                                <td class="text-truncate">
+                                                    <ul class="list-unstyled order-list m-b-0 m-b-0">
+                                                        <li class="team-member team-member-sm"><img
+                                                                alt="user"
+                                                                class="rounded-circle"
+                                                                data-original-title="Wildan Ahdian"
+                                                                data-toggle="tooltip" src="img/users/user-8.png"
+                                                                title=""></li>
+                                                        <li class="team-member team-member-sm"><img
+                                                                alt="user"
+                                                                class="rounded-circle" data-original-title="Sarah Smith"
+                                                                data-toggle="tooltip" src="img/users/user-10.png"
+                                                                title=""></li>
+                                                        <li class="avatar avatar-sm"><span class="badge badge-primary">+3</span>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                                <td class="text-truncate">$8500</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-truncate">Project GTe</td>
+                                                <td class="text-truncate">
+                                                    <ul class="list-unstyled order-list m-b-0 m-b-0">
+                                                        <li class="team-member team-member-sm"><img
+                                                                alt="user"
+                                                                class="rounded-circle"
+                                                                data-original-title="Wildan Ahdian"
+                                                                data-toggle="tooltip" src="img/users/user-3.png"
+                                                                title=""></li>
+                                                        <li class="team-member team-member-sm"><img
+                                                                alt="user"
+                                                                class="rounded-circle" data-original-title="Sarah Smith"
+                                                                data-toggle="tooltip" src="img/users/user-5.png"
+                                                                title=""></li>
+                                                        <li class="avatar avatar-sm"><span class="badge badge-primary">+3</span>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                                <td class="text-truncate">$8500</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!--设置板-->
+            <div th:replace="~{admin/commons/commons::admin-settingbar}"></div>
+        </div>
+        <!--底部-->
+        <footer th:replace="~{admin/commons/commons::admin-footer}"></footer>
+    </div>
+</div>
+
+
+<!-- General JS Scripts -->
+<script th:src="@{js/app.min.js}"></script>
+<!-- JS Libraies -->
+<script th:src="@{bundles/apexcharts/apexcharts.min.js}"></script>
+<script th:src="@{bundles/amcharts4/core.js}"></script>
+<script th:src="@{bundles/amcharts4/charts.js}"></script>
+<script th:src="@{bundles/amcharts4/animated.js}"></script>
+<script th:src="@{bundles/jquery.sparkline.min.js}"></script>
+<!-- Page Speific JS File -->
+<script th:src="@{js/page/index.js}"></script>
+<!-- TemplateJS File -->
+<script th:src="@{js/scripts.js}"></script>
+<!-- Custom Js File -->
+<script th:src="@{js/custom.js}"></script>
+</body>
+
+</html>
