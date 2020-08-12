@@ -3,6 +3,7 @@ package com.scy.po;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,6 +11,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * 博客实体类
+ *
  * @Author Scy
  * @Date 2020/8/7 10:52
  * @Version 1.0
@@ -19,25 +22,30 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "t_blog")
+@ToString
 public class Blog {
 
     @Id
     @GeneratedValue
     private Long id;
     private String title;           // 博客标题
+    @Basic(fetch = FetchType.LAZY)
+    @Lob
     private String content;         // 博客内容
     private String topPicture;      // 顶部大图
-    private String flag;            // 原创、转载、翻译、其他；一篇博客只属于一种类型
     private Integer views;          // 访问/阅读数
     private boolean appreciate;     // 是否开启赞赏
     private boolean shareStatement; // 是否开启转载声明
     private boolean commentable;    // 是否开启评论
-    private boolean published;      // 是否已发布，否则为草稿
+    private boolean published;      // 状态 是否已发布，否则为草稿
     private boolean recommend;      // 是否作为推荐
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateTime;
+
+    @Transient      // 该属性不会与数据库映射，只是一个属性值
+    private String tagIds;
 
     /**
      * mappedBy：
@@ -48,7 +56,7 @@ public class Blog {
      * mappedBy这方定义JoinColumn/JoinTable总是失效的，不会建立对应的字段或者表。
      */
     @ManyToOne
-    private Type type;    // todo but not now: 分类
+    private Type type;    // 原创、转载、翻译、其他；一篇博客只属于一种类型
 
     /**
      * 级联： 我的理解是：给当前设置的实体操作另一个实体的权限。
@@ -76,6 +84,43 @@ public class Blog {
 
     @OneToMany(mappedBy = "blog")
     private List<Comment> comments = new ArrayList<>(); // 一篇博客可以有多条评论
+
+
+    public void init() {
+        this.tagIds = tags2Ids(this.getTags());
+    }
+
+    private String tags2Ids(List<Tag> tags) {
+        if (!tags.isEmpty()) {
+            StringBuffer ids = new StringBuffer();
+            boolean flag = false;
+            for (Tag tag : tags) {
+                if (flag) {
+                    ids.append(",");
+                } else {
+                    flag = true;
+                }
+                ids.append(tag.getId());
+            }
+            return ids.toString();
+        } else {
+            return null;
+        }
+    }
+
+    private List<String> tags2tagIds(List<Tag> tags) {
+        if (!tags.isEmpty()) {
+            List<String> ids = new ArrayList<>();
+            boolean flag = false;
+            for (Tag tag : tags) {
+
+                ids.add(tag.getId().toString());
+            }
+            return ids;
+        } else {
+            return null;
+        }
+    }
 
 
 }

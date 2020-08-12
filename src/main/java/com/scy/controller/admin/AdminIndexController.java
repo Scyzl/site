@@ -26,6 +26,7 @@ public class AdminIndexController {
 
     @GetMapping("/login")
     public String loginPage() {
+//        int i = 1/0;
         return "admin/login";
     }
 
@@ -51,18 +52,9 @@ public class AdminIndexController {
         return "redirect:/admin/login";
     }
 
-    @GetMapping("/blogs")
-    public String blogs() {
-        return "admin/list_blog";
-    }
-
     @GetMapping("/comments")
     public String comments() {
         return "admin/list_comment";
     }
 
-    @GetMapping("/post")
-    public String create_post() {
-        return "admin/create_post";
-    }
 }

@@ -29,8 +29,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/admin/types/**").addResourceLocations("classpath:/static/admin/");
         registry.addResourceHandler("/admin/types/add/**").addResourceLocations("classpath:/static/admin/");
         registry.addResourceHandler("/admin/types/delete/**").addResourceLocations("classpath:/static/admin/");
+        registry.addResourceHandler("/admin/blogs/**").addResourceLocations("classpath:/static/admin/");
+        registry.addResourceHandler("/admin/blogs/add/**").addResourceLocations("classpath:/static/admin/");
+        registry.addResourceHandler("/admin/blogs/delete/**").addResourceLocations("classpath:/static/admin/");
         registry.addResourceHandler("/admin/login/**").addResourceLocations("classpath:/static/admin/");
-        registry.addResourceHandler("/admin/error/**").addResourceLocations("classpath:/static/site/");
+        registry.addResourceHandler("/admin/site/**").addResourceLocations("classpath:/static/site/");
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
 
     }
@@ -40,6 +43,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/admin/**")
                 .excludePathPatterns("/admin/login")
-                .excludePathPatterns("/static/**");
+                .excludePathPatterns("/static/**", "/**/*.css", "/**/*.js", "/**/*.jpg", "/**/*.png", "/**/font/*",
+                        "/**/*.woff", "/**/*.woff2", "/**/*.ttf", "/**/*.svg");
     }
 }
