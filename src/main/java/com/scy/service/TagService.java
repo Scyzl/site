@@ -4,6 +4,8 @@ import com.scy.po.Tag;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 /**
  * @Author Scy
  * @Date 2020/8/7 16:35
@@ -42,6 +44,10 @@ public interface TagService {
      * @return Page<Tag>
      */
     Page<Tag> listTag(Pageable pageable);
+
+    List<Tag> listTag();
+
+    List<Tag> listTag(String ids);
 
     /**
      * 根据id查询到tag，并进行更新

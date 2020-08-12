@@ -3,6 +3,7 @@ package com.scy.po;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import java.util.List;
  * @Date 2020/8/7 10:57
  * @Version 1.0
  */
+@ToString
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

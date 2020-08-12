@@ -17,11 +17,13 @@
     <link rel="stylesheet" th:href="@{bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.css}">
     <link rel="stylesheet" th:href="@{bundles/datatables/datatables.min.css}">
     <link rel="stylesheet" th:href="@{bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css}">
-    <link rel="stylesheet" th:href="@{bundles/datatables/Select-1.2.4/css/select.bootstrap4.min.css}">
+    <!--    <link rel="stylesheet" th:href="@{bundles/datatables/Select-1.2.4/css/select.bootstrap4.min.css}">-->
     <!--editormd CSS-->
     <link rel="stylesheet" th:href="@{bundles/editormd/css/editormd.css}">
+
+    <link rel="stylesheet" th:href="@{bundles/select2/dist/css/select2.min.css}">
     <!--formSelects-v4 CSS-->
-    <link rel="stylesheet" th:href="@{bundles/formSelects/formSelects-v4.css}">
+    <!--    <link rel="stylesheet" th:href="@{bundles/formSelects/formSelects-v4.css}">-->
     <!-- Template CSS -->
     <link rel="stylesheet" th:href="@{css/style.css}">
     <link rel="stylesheet" th:href="@{bundles/pretty-checkbox/pretty-checkbox.min.css}">
@@ -178,7 +180,8 @@
                                                src="img/user.png">
             <span class="d-sm-none d-lg-inline-block"></span></a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
-                <div class="dropdown-title">Hello Scy</div>
+                <div class="dropdown-title"
+                     th:text="' Hello ' + ${#request.session.getAttribute('user').username}"></div>
                 <!--th:text="Hello + ${#request.session.getAttribute('user')['username']}"-->
                 <a class="dropdown-item has-icon" href="profile.html"> <i class="far
 										fa-user"></i> Profile
@@ -220,7 +223,7 @@
                         data-feather="briefcase"></i><span>博客列表</span></a>
             </li>
             <li th:class="${active=='post'}? 'dropdown active' : 'dropdown'">
-                <a class="menu-toggle nav-link" th:href="@{/admin/post}"><i
+                <a class="menu-toggle nav-link" th:href="@{/admin/blogs/add}"><i
                         data-feather="command"></i><span>发布博客</span></a>
             </li>
             <li th:class="${active=='types'}? 'dropdown active' : 'dropdown'">
