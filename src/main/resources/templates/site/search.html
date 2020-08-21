@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="site/commons/commons::head(~{::title}, ~{::link})">
-    <title>Home</title>
+    <title>Search Results</title>
     <link/>
 </head>
 
@@ -21,24 +21,26 @@
 <!-- Preloader End Here -->
 
 <div id="wrapper" class="wrapper">
-    <!-- Add your site or application content here -->
     <!--头部 Header Area Start Here -->
-    <div th:replace="~{site/commons/commons::headerbar(active = 'index.html')}"></div>
+    <div th:replace="~{site/commons/commons::headerbar(active = 'search.html')}"></div>
     <!--头部 Header Area End Here -->
 
     <!--正文区 start-->
     <div class="box-layout-child bg-white">
+
         <!-- Blog Area Start Here -->
         <section class="blog-wrap-layout13" style="padding-top: 50px">
             <div class="container">
+                <div style="text-align: center;font-weight: bolder;font-size: large">搜索结果： 共 <span
+                        th:text="${page.totalElements}" style="font-size: xx-large">3</span> 篇
+                </div>
+                <hr>
                 <div class="row gutters-40">
                     <!--正文区-->
-                    <div class="col-xl-9 col-lg-8">
-                        <div class="blog-box-layout11" th:each="blog: ${page.content}"
-                             style="border-bottom: 1px solid #6164ef">
-                            <div class="item-img">    <!--site/img/blog/blog93.jpg-->
+                    <div class="col-xl-12 col-lg-12" style="padding-right: 10%;padding-left: 10%">
+                        <div class="blog-box-layout11" th:each="blog: ${page.content}">
+                            <div class="item-img text-center">
                                 <a th:href="@{/site/blog/{id}(id=${blog.id})}"><img th:src="@{${blog.topPicture}}"
-                                                                                    style="width: 400px;height: 200px"
                                                                                     alt="blog"></a>
                             </div>
                             <div class="item-content">
@@ -81,9 +83,8 @@
                                     <i class="fas fa-chevron-left"></i></a>
                                 </li>
                                 <li th:each="i:${#numbers.sequence(1,page.totalPages)}"
-                                    th:class="${i==page.number+1?'active': ''}">
+                                    th:class="${i==page.number+1?'active disabled': ''}">
                                     <a th:href="@{/site/(page=${page.number}+${i}-${page.number}-1)}"
-                                       th:class="${i==page.number+1?'btn active disabled': ''}"
                                        th:text="${i}">1</a>
                                 </li>
                                 <li><a th:class="${page.last?'btn disabled': ''}"
@@ -93,8 +94,8 @@
                             </ul>
                         </div>
                     </div>
-                    <!--右边栏-->
-                    <div th:replace="~{site/commons/commons::rightbar}"></div>
+                    <!--右边栏
+                    <div id="rightBar" th:replace="~{site/commons/commons::rightbar}"></div>-->
                 </div>
             </div>
         </section>
@@ -109,14 +110,23 @@
     </div>
     <!-- Footer Area End Here -->
 
-    <!--    非画布菜单（移动端） Offcanvas Menu Start-->
+    <!--非画布菜单（移动端） Offcanvas Menu Start -->
     <div th:replace="~{site/commons/commons::offcanvas-menu}"></div>
-    <!--     Offcanvas Menu End-->
+    <!-- Offcanvas Menu End -->
 
 </div>
 
 
 <th:block th:replace="~{site/commons/commons::script}"></th:block>
+
+<script type="text/javascript">
+
+    $(function () {
+        // $.ajax()
+        $("#rightBar").load(/*[[@{/admin/blogs/search}]]*/"/site/rightBar", {})
+    });
+
+</script>
 
 </body>
 

@@ -8,3 +8,6 @@ spring:
 
   profiles:
     active: dev
+
+
+comment.avatar: img/users/visitor.png

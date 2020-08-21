@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title = 'Comments'">
+<html lang="en" th:with="title = 'Comments'" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="~{admin/commons/commons::admin-head(${title})}"></head>
 
@@ -13,19 +13,16 @@
         <!--侧边栏-->
         <div th:replace="~{admin/commons/commons::admin-sidebar(active='comments')}"></div>
         <!-- Main Content -->
+        <input type="hidden" id="foucsInit"></input>
         <div class="main-content">
+            <!--评论列表-->
             <section class="section">
-                <!--          <ul class="breadcrumb breadcrumb-style ">-->
-                <!--            <li class="breadcrumb-item">-->
-                <!--              <h4 class="page-title m-b-0">博客列表</h4>-->
-                <!--            </li>-->
-                <!--          </ul>-->
                 <div class="section-body">
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4>博客列表</h4>
+                                    <h4>评论列表</h4>
                                     <div class="card-header-form">
                                         <form>
                                             <div class="input-group">
@@ -39,478 +36,172 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped">
-                                            <thead>
-                                            <tr>
-                                                <th>Cust.</th>
-                                                <th>Project</th>
-                                                <th>Assign Date</th>
-                                                <th>Team</th>
-                                                <th>Priority</th>
-                                                <th>Status</th>
-                                                <th>Edit</th>
-                                            </tr>
-                                            </thead>
-                                            <tr>
-                                                <td class="table-img"><img alt="" src="img/users/user-8.png">
-                                                </td>
-                                                <td>
-                                                    <h6 class="mb-0 font-13">Wordpress Website</h6>
-                                                    <p class="m-0 font-12">
-                                                        Assigned to<span
-                                                            class="col-green font-weight-bold"> Airi Satou</span>
-                                                    </p>
-                                                </td>
-                                                <td>20-02-2018</td>
-                                                <td class="text-truncate">
-                                                    <ul class="list-unstyled order-list m-b-0 m-b-0">
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="Wildan Ahdian"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-8.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="John Deo"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-9.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="Sarah Smith"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-10.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="avatar avatar-sm"><span
-                                                                class="badge badge-primary">+4</span></li>
-                                                    </ul>
-                                                </td>
-                                                <td>
-                                                    <div class="badge-outline col-red">High</div>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="progress-text">50%</div>
-                                                    <div class="progress" data-height="6">
-                                                        <div class="progress-bar bg-success" data-width="50%"></div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a data-original-title="Edit" data-toggle="tooltip" title=""><i
-                                                            class="fas fa-pencil-alt"></i></a>
-                                                    <a data-original-title="Delete" data-toggle="tooltip" title=""><i
-                                                            class="far fa-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-img"><img alt="" src="img/users/user-1.png">
-                                                </td>
-                                                <td>
-                                                    <h6 class="mb-0 font-13">Android Game App</h6>
-                                                    <p class="m-0 font-12">
-                                                        Assigned to<span
-                                                            class="col-green font-weight-bold"> Sarah Smith</span>
-                                                    </p>
-                                                </td>
-                                                <td>22-05-2019</td>
-                                                <td class="text-truncate">
-                                                    <ul class="list-unstyled order-list m-b-0 m-b-0">
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="Wildan Ahdian"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-4.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="John Deo"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-7.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="Sarah Smith"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-2.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="avatar avatar-sm"><span
-                                                                class="badge badge-primary">+4</span></li>
-                                                    </ul>
-                                                </td>
-                                                <td>
-                                                    <div class="badge-outline col-green">Low</div>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="progress-text">55%</div>
-                                                    <div class="progress" data-height="6">
-                                                        <div class="progress-bar bg-purple" data-width="55%"></div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a data-original-title="Edit" data-toggle="tooltip" title=""><i
-                                                            class="fas fa-pencil-alt"></i></a>
-                                                    <a data-original-title="Delete" data-toggle="tooltip" title=""><i
-                                                            class="far fa-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-img"><img alt="" src="img/users/user-5.png">
-                                                </td>
-                                                <td>
-                                                    <h6 class="mb-0 font-13">Java Web Service</h6>
-                                                    <p class="m-0 font-12">
-                                                        Assigned to<span
-                                                            class="col-green font-weight-bold"> Cara Stevens</span>
-                                                    </p>
-                                                </td>
-                                                <td>11-04-2019</td>
-                                                <td class="text-truncate">
-                                                    <ul class="list-unstyled order-list m-b-0 m-b-0">
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="Wildan Ahdian"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-3.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="John Deo"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-7.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="Sarah Smith"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-8.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="avatar avatar-sm"><span
-                                                                class="badge badge-primary">+4</span></li>
-                                                    </ul>
-                                                </td>
-                                                <td>
-                                                    <div class="badge-outline col-blue">Medium</div>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="progress-text">70%</div>
-                                                    <div class="progress" data-height="6">
-                                                        <div class="progress-bar" data-width="70%"></div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a data-original-title="Edit" data-toggle="tooltip" title=""><i
-                                                            class="fas fa-pencil-alt"></i></a>
-                                                    <a data-original-title="Delete" data-toggle="tooltip" title=""><i
-                                                            class="far fa-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-img"><img alt="" src="img/users/user-9.png">
-                                                </td>
-                                                <td>
-                                                    <h6 class="mb-0 font-13">Wedding IOS App</h6>
-                                                    <p class="m-0 font-12">
-                                                        Assigned to<span
-                                                            class="col-green font-weight-bold"> John Doe</span>
-                                                    </p>
-                                                </td>
-                                                <td>19-05-2019</td>
-                                                <td class="text-truncate">
-                                                    <ul class="list-unstyled order-list m-b-0 m-b-0">
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="Wildan Ahdian"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-2.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="John Deo"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-10.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="Sarah Smith"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-4.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="avatar avatar-sm"><span
-                                                                class="badge badge-primary">+4</span></li>
-                                                    </ul>
-                                                </td>
-                                                <td>
-                                                    <div class="badge-outline col-red">High</div>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="progress-text">45%</div>
-                                                    <div class="progress" data-height="6">
-                                                        <div class="progress-bar bg-cyan" data-width="45%"></div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a data-original-title="Edit" data-toggle="tooltip" title=""><i
-                                                            class="fas fa-pencil-alt"></i></a>
-                                                    <a data-original-title="Delete" data-toggle="tooltip" title=""><i
-                                                            class="far fa-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-img"><img alt="" src="img/users/user-10.png">
-                                                </td>
-                                                <td>
-                                                    <h6 class="mb-0 font-13">Blize Admin Template</h6>
-                                                    <p class="m-0 font-12">
-                                                        Assigned to<span
-                                                            class="col-green font-weight-bold"> Ashton Cox</span>
-                                                    </p>
-                                                </td>
-                                                <td>25-07-2019</td>
-                                                <td class="text-truncate">
-                                                    <ul class="list-unstyled order-list m-b-0 m-b-0">
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="Wildan Ahdian"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-1.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="John Deo"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-5.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="Sarah Smith"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-7.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="avatar avatar-sm"><span
-                                                                class="badge badge-primary">+4</span></li>
-                                                    </ul>
-                                                </td>
-                                                <td>
-                                                    <div class="badge-outline col-blue">Medium</div>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="progress-text">67%</div>
-                                                    <div class="progress" data-height="6">
-                                                        <div class="progress-bar bg-red" data-width="67%"></div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a data-original-title="Edit" data-toggle="tooltip" title=""><i
-                                                            class="fas fa-pencil-alt"></i></a>
-                                                    <a data-original-title="Delete" data-toggle="tooltip" title=""><i
-                                                            class="far fa-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-img"><img alt="" src="img/users/user-4.png">
-                                                </td>
-                                                <td>
-                                                    <h6 class="mb-0 font-13">React js website</h6>
-                                                    <p class="m-0 font-12">
-                                                        Assigned to<span
-                                                            class="col-green font-weight-bold"> Sarah Smith </span>
-                                                    </p>
-                                                </td>
-                                                <td>11-08-2019</td>
-                                                <td class="text-truncate">
-                                                    <ul class="list-unstyled order-list m-b-0 m-b-0">
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="Wildan Ahdian"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-5.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="John Deo"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-8.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="Sarah Smith"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-3.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="avatar avatar-sm"><span
-                                                                class="badge badge-primary">+4</span></li>
-                                                    </ul>
-                                                </td>
-                                                <td>
-                                                    <div class="badge-outline col-green">Low</div>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="progress-text">41%</div>
-                                                    <div class="progress" data-height="6">
-                                                        <div class="progress-bar bg-orange" data-width="41%"></div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a data-original-title="Edit" data-toggle="tooltip" title=""><i
-                                                            class="fas fa-pencil-alt"></i></a>
-                                                    <a data-original-title="Delete" data-toggle="tooltip" title=""><i
-                                                            class="far fa-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-img"><img alt="" src="img/users/user-10.png">
-                                                </td>
-                                                <td>
-                                                    <h6 class="mb-0 font-13">SEO improvement</h6>
-                                                    <p class="m-0 font-12">
-                                                        Assigned to<span
-                                                            class="col-green font-weight-bold"> Janak Gandhi</span>
-                                                    </p>
-                                                </td>
-                                                <td>22-02-2018</td>
-                                                <td class="text-truncate">
-                                                    <ul class="list-unstyled order-list m-b-0 m-b-0">
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="Wildan Ahdian"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-3.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="John Deo"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-9.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="Sarah Smith"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-1.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="avatar avatar-sm"><span
-                                                                class="badge badge-primary">+4</span></li>
-                                                    </ul>
-                                                </td>
-                                                <td>
-                                                    <div class="badge-outline col-red">High</div>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="progress-text">70%</div>
-                                                    <div class="progress" data-height="6">
-                                                        <div class="progress-bar bg-success" data-width="70%"></div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a data-original-title="Edit" data-toggle="tooltip" title=""><i
-                                                            class="fas fa-pencil-alt"></i></a>
-                                                    <a data-original-title="Delete" data-toggle="tooltip" title=""><i
-                                                            class="far fa-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-img"><img alt="" src="img/users/user-6.png">
-                                                </td>
-                                                <td>
-                                                    <h6 class="mb-0 font-13">Laravel Website</h6>
-                                                    <p class="m-0 font-12">
-                                                        Assigned to<span
-                                                            class="col-green font-weight-bold"> Mili Rain</span>
-                                                    </p>
-                                                </td>
-                                                <td>31-03-2019</td>
-                                                <td class="text-truncate">
-                                                    <ul class="list-unstyled order-list m-b-0 m-b-0">
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="Wildan Ahdian"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-4.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="John Deo"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-7.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="team-member team-member-sm"><img alt="user"
-                                                                                                    class="rounded-circle"
-                                                                                                    data-original-title="Sarah Smith"
-                                                                                                    data-toggle="tooltip"
-                                                                                                    src="img/users/user-2.png"
-                                                                                                    title="">
-                                                        </li>
-                                                        <li class="avatar avatar-sm"><span
-                                                                class="badge badge-primary">+4</span></li>
-                                                    </ul>
-                                                </td>
-                                                <td>
-                                                    <div class="badge-outline col-green">Low</div>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <div class="progress-text">55%</div>
-                                                    <div class="progress" data-height="6">
-                                                        <div class="progress-bar bg-purple" data-width="55%"></div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a data-original-title="Edit" data-toggle="tooltip" title=""><i
-                                                            class="fas fa-pencil-alt"></i></a>
-                                                    <a data-original-title="Delete" data-toggle="tooltip" title=""><i
-                                                            class="far fa-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                    <div th:class="${flag=='0'?'col-md-6 m-auto alert alert-success alert-has-icon alert-dismissible show fade': 'col-md-6 m-auto alert alert-danger alert-has-icon alert-dismissible show fade'}"
+                                         th:unless="${#strings.isEmpty(msg)}">
+                                        <button class="close" data-dismiss="alert">
+                                            <span>&times;</span>
+                                        </button>
+                                        <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                                        <div class="alert-body">
+                                            <div class="alert-title" th:text="'Tips: ' + ${msg}">Success</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card-footer text-right">
-                                    <nav class="d-inline-block">
-                                        <ul class="pagination mb-0">
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="#" tabindex="-1"><i
-                                                        class="fas fa-chevron-left"></i></a>
-                                            </li>
-                                            <li class="page-item active"><a class="page-link" href="#">1 <span
-                                                    class="sr-only">(current)</span></a></li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">2</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                                            </li>
-                                        </ul>
-                                    </nav>
+                                    <div class="table-responsive">
+                                        <div id="comments">
+                                            <div id="comment-container" th:fragment="commentList">
+                                                <table class="table table-striped text-center">
+                                                    <input name="page" type="hidden">
+                                                    <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>博客标题</th>
+                                                        <th>评论内容</th>
+                                                        <th>评论时间</th>
+                                                        <th>评论者</th>
+                                                        <th>被回复者</th>
+                                                        <th>操作</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tr th:each="comment, iterStat: ${page.content}">
+                                                        <td th:text="${iterStat.count}"></td>
+                                                        <td th:text="${comment.blog.title}"></td>
+                                                        <td th:text="${comment.content}"></td>
+                                                        <td th:text="${#dates.format(comment.createTime, 'yyyy-MM-dd HH:mm')}"></td>
+                                                        <td th:text="${comment.nickname}"></td>
+                                                        <td th:text="${comment.parentComment}==null? '无' : ${comment.parentComment.nickname}"></td>
+                                                        <td>
+                                                            <a data-original-title="Reply"
+                                                               onclick="reply(this)" data-toggle="modal"
+                                                               data-target="#exampleModal"
+                                                               th:attr="data-blogid=${comment.blog.id}, data-blogtitle=${comment.blog.title}, data-commentid=${comment.id}, data-commentnickname=${comment.nickname}"
+                                                               title=""><i
+                                                                    class="fas fa-pencil-alt"></i></a>
+                                                            <a data-original-title="Delete"
+                                                               data-toggle="tooltip"
+                                                               th:href="@{/admin/comments/delete/{id}(id=${comment.id})}"
+                                                               title=""><i
+                                                                    class="far fa-trash-alt"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <!--分页-->
+                                                <div class="card-footer text-center">
+                                                    <nav class="d-inline-block mr-5">
+                                                        <a class="btn btn-outline-primary font-weight-bold font-14"
+                                                           href="javascript:history.go(-1)">返
+                                                            回</a>
+                                                        <a class="btn btn-outline-primary font-weight-bold font-14"
+                                                           th:href="@{/admin/blogs/add}">添
+                                                            加</a>
+                                                    </nav>
+                                                    <nav class="d-inline-block ml-5">
+                                                        <ul class="pagination mb-0" th:if="${page.numberOfElements>0}">
+                                                            <li th:class="${page.first?'page-item disabled': 'page-item'}">
+                                                                <a class="page-link" onclick="page(this)"
+                                                                   th:attr="data-page=${page.number}-1">
+                                                                    <i class="fas fa-chevron-left"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li th:class="${i==page.number+1?'page-item active disabled': 'page-item'}"
+                                                                th:each="i: ${#numbers.sequence(1, page.totalPages)}">
+                                                                <a class="page-link" onclick="page(this)"
+                                                                   style="color: #2d2d2d"
+                                                                   th:attr="data-page=${page.number}+${i}-${page.number}-1"
+                                                                   th:text="${i}">1</a>
+                                                            </li>
+                                                            <li th:class="${page.last?'page-item disabled': 'page-item'}">
+                                                                <a class="page-link" onclick="page(this)"
+                                                                   th:attr="data-page=${page.number}+1">
+                                                                    <i class="fas fa-chevron-right"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </nav>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+            <!--写评论-->
+            <div class="modal fade pt-5" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="formModal"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="formModal">写评论</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="contact-form-box needs-validation" id="comments-form"
+                                  method="POST" novalidate="">
+                                <input id="blog.id" name="blog.id" type="hidden">
+                                <input id="avatar" name="avatar"
+                                       th:value="${#request.session.getAttribute('user').avatar}"
+                                       type="hidden">
+                                <input id="parentComment.id" name="parentComment.id" type="hidden"
+                                       value="-1">
+                                <div class="form-group floating-addon">
+                                    <label>Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="far fa-user"></i>
+                                            </div>
+                                        </div>
+                                        <input autofocus class="form-control"
+                                               id="name"
+                                               name="name" placeholder="Name" required=""
+                                               th:value="${#request.session.getAttribute('user').nickname}"
+                                               type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group floating-addon">
+                                    <label>Email</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                        </div>
+                                        <input class="form-control" id="email" name="email"
+                                               placeholder="Email"
+                                               required="" th:value="${#request.session.getAttribute('user').email}"
+                                               type="email">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Title</label>
+                                    <textarea class="form-control" data-height="150" name="blogtitle"
+                                              placeholder="请输入文章标题" required=""></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Message</label>
+                                    <textarea class="form-control" data-height="150" id="content"
+                                              name="content" placeholder="请输入评论内容"
+                                              required=""></textarea>
+                                </div>
+                                <div class="form-group text-right">
+                                    <button class="btn btn-round btn-lg btn-primary" id="post-btn"
+                                            type="button">
+                                        Post
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!--设置板-->
             <div th:replace="~{admin/commons/commons::admin-settingbar}"></div>
         </div>
@@ -521,13 +212,112 @@
 <!-- General JS Scripts -->
 <script th:src="@{js/app.min.js}"></script>
 <!-- JS Libraies -->
-<script th:src="@{bundles/editable-table/mindmup-editabletable.js}"></script>
+<!--<script th:src="@{bundles/editable-table/mindmup-editabletable.js}"></script>-->
+<!--<script th:src="@{bundles/prism/prism.js}"></script>-->
 <!-- Page Specific JS File -->
-<script th:src="@{js/page/editable-table.js}"></script>
+<!--<script th:src="@{js/page/editable-table.js}"></script>-->
 <!-- Template JS File -->
 <script th:src="@{js/scripts.js}"></script>
 <!-- Custom JS File -->
 <script th:src="@{js/custom.js}"></script>
+<script th:src="@{site/js/jquery.validate.min.js}"></script>
+
+<script type="text/javascript">
+
+    $("#foucsInit").focus();
+
+    function page(obj) {
+        $("[name='page']").val($(obj).data("page"));
+
+        loadData();
+    }
+
+    function loadData() {
+        // $.ajax()
+        $("#comment-container").load("/admin/commentsLoad", {
+            page: $("[name='page']").val(),
+        });
+    }
+
+    function postData() {
+        $("#comments").load(/*[[@{/admin/comments/add}]]*/"/admin/comments/add", {
+            "parentComment.id": $("[name='parentComment.id']").val(),
+            "blog.id": $("[name='blog.id']").val(),
+            "nickname": $("[name = 'name']").val(),
+            "email": $("[name='email']").val(),
+            "content": $("[name='content']").val(),
+            "avatar": $("[name='avatar']").val(),
+        }, function (responseTxt, statusTxt, xhr) {
+            // $(window).scrollTo($("#comments"), 500);
+            clearContent();
+        })
+    }
+
+    $("#post-btn").click(function () {
+        /*$("[name='published']").val(true);*/
+        if ($("#comments-form").valid()) {
+            postData();
+        }
+    });
+
+    function reply(obj) {
+        var blogid = $(obj).data('blogid');
+        var blogtitle = $(obj).data('blogtitle');
+        var commentid = $(obj).data('commentid');
+        // alert(commentid);
+        var commentnickname = $(obj).data('commentnickname');
+        // alert(commentnickname);
+        $("[name='blog.id']").val(blogid);
+        $("[name='blogtitle']").val(blogtitle);
+        $("[name='content']").attr('placeholder', "@" + commentnickname).focus();
+        $("[name='parentComment.id']").val(commentid);
+        // $(window).scrollTo($("#comments-form"), 500);
+    }
+
+    function clearContent() {
+        $("[name='parentComment.id']").val(-1);
+        $("[name='blog.id']").val('');
+        $("[name='content']").val('');
+        $("[name='content']").attr("placeholder", "请输入评论...");
+    }
+
+    // 表单验证
+    $(function () {
+        $("#comments-form").validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                    email: true,
+                },
+                blogtitle: {
+                    required: true,
+                },
+                content: {
+                    required: true,
+                },
+            },
+            messages: {
+                name: {
+                    required: "此为必填字段，请输入名字！",
+                },
+                email: {
+                    required: "此为必填字段，请输入邮箱！",
+                    email: "请输入正确的邮箱格式",
+                },
+                blogtitle: {
+                    required: "此为必填字段，请输入文章标题！",
+                },
+                content: {
+                    required: "此为必填字段，请输入评论内容！",
+                },
+            },
+        })
+    });
+</script>
+
 </body>
 
 </html>

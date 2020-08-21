@@ -1,7 +1,10 @@
 ﻿<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='500'">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="~{site/commons/commons::head(${title})}"></head>
+<head th:replace="site/commons/commons::head(~{::title}, ~{::link})">
+    <title>500</title>
+    <link/>
+</head>
 
 <body class="sticky-header">
 <!--[if lte IE 9]>
@@ -26,12 +29,9 @@
         <div class="container">
             <div class="error-page-box">
                 <div class="error-logo">
-                    <img src="site/img/figure/404.png" alt="error">
+                    <img th:src="@{img/figure/500.png}" alt="500">
                 </div>
-                <h2 class="error-title">Page not found!</h2>
-                <p>We're sorry, but we can't find the page you were looking for.
-                    It's probably some thing we've done wrong but now we know about
-                    it and we'll try to fix it. In the meantime, try one of these options:</p>
+                <!--                <h2 class="error-title">Server is busy!</h2>-->
                 <a href="/static" class="item-btn">GO TO HOME</a>
             </div>
         </div>

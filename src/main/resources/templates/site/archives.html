@@ -1,18 +1,35 @@
 ﻿<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='Blog | Archives'">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="~{site/commons/commons::head(${title})}"></head>
+<head th:replace="site/commons/commons::head(~{::title}, ~{::link})">
+    <title>Archives</title>
+    <link rel="stylesheet" th:href="@{admin/css/components.css}">
+</head>
+<!-- General CSS Files -->
+<!--<link rel="stylesheet" th:href="@{admin/css/app.min.css}">-->
+<!-- Template CSS -->
+<!--<link rel="stylesheet" th:href="@{admin/css/style.css}">-->
+
+<!-- Custom style CSS -->
+<!--  <link rel="stylesheet" href="assets/css/custom.css">-->
+<!--<link rel='shortcut icon' type='image/x-icon' th:href='@{admin/img/favicon.ico}' />-->
 
 <body class="sticky-header">
 <!--[if lte IE 9]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
     your browser</a> to improve your experience and security.</p>
 <![endif]-->
+
+<!-- ScrollUp Start Here 从这里开始滚动-->
+<a href="#wrapper" data-type="section-switch" class="scrollup">
+    <i class="fas fa-angle-double-up"></i>
+</a>
+<!-- ScrollUp End Here -->
+
 <!-- Preloader Start Here -->
 <div id="preloader"></div>
 <!-- Preloader End Here -->
 <div id="wrapper" class="wrapper">
-    <!-- Add your site or application content here -->
     <!-- Header Area Start Here -->
     <div th:replace="~{site/commons/commons::headerbar(active = 'archives.html')}"></div>
     <!-- Header Area End Here -->
@@ -33,10 +50,10 @@
     <!-- Blog Area Start Here -->
     <section class="blog-wrap-layout13 m-margin-tb-3">
         <div class="container">
-            <div class="row gutters-40">
-                <!--正文区-->
+            <!--<div class="row gutters-40">
+                &lt;!&ndash;正文区&ndash;&gt;
                 <div class="col-xl-9 col-lg-8">
-                    <!--时间轴-->
+                    &lt;!&ndash;时间轴&ndash;&gt;
                     <div class="widget">
                         <div class="timeline-small-body">
                             <ul>
@@ -232,7 +249,7 @@
                             </ul>
                         </div>
                     </div>
-                    <!--页码-->
+                    &lt;!&ndash;页码&ndash;&gt;
                     <div class="pagination-layout1 m-margin-tb-5">
                         <ul>
                             <li class="active"><a href="#">1</a></li>
@@ -241,41 +258,53 @@
                         </ul>
                     </div>
                 </div>
-                <!--右边栏-->
+                &lt;!&ndash;右边栏&ndash;&gt;
                 <div class="col-xl-3 col-lg-4 sidebar-widget-area sidebar-break-md">
                     <div th:replace="~{site/commons/commons::rbar-popular}"></div>
                     <div th:replace="~{site/commons/commons::rbar-featured}"></div>
                     <div th:replace="~{site/commons/commons::rbar-ad}"></div>
                     <div th:replace="~{site/commons/commons::rbar-subscribe}"></div>
                 </div>
-            </div>
+            </div>-->
+            <section class="col-md-10 m-auto">
+                <div class="section-body" th:each="map: ${archiveMap}">
+                    <h2 class="section-title text-center" th:text="${map.key}"></h2>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="activities">
+                                <div class="activity" th:each="blog: ${map.value}">
+                                    <div class="activity-icon bg-primary text-white">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </div>
+                                    <div class="activity-detail">
+                                        <div class="mb-2 text-center">
+                                            <i class="fas fa-calendar-alt text-job text-primary"
+                                               th:text="| ${#dates.format(blog.updateTime, 'MM-dd')} |"> 2020-10-01</i>
+                                        </div>
+                                        <span><i class="fas fa-tasks mr-5" style="font-size: medium"
+                                                 th:text="| ${blog.type.name} |">  </i></span>
+                                        <a th:href="@{/site/blog/{id}(id=${blog.id})}"><span style="font-size: larger"
+                                                                                             th:text="${blog.title}"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </section>
     <!-- Blog Area End Here -->
 
     <!-- Footer Area Start Here -->
-    <div th:replace="~{site/commons/commons::footerbar}"></div>
+    <div id="footer-container">
+        <div th:replace="~{site/commons/commons::footerbar}"></div>
+    </div>
     <!-- Footer Area End Here -->
 
 </div>
-<!-- jquery-->
-<script src="site/js/jquery-3.3.1.min.js"></script>
-<!-- Plugins js -->
-<script src="site/js/plugins.js"></script>
-<!-- Popper js -->
-<script src="site/js/popper.min.js"></script>
-<!-- Bootstrap js -->
-<script src="http://cdn.bootstrapmb.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<!-- Owl Carousel js -->
-<script src="site/OwlCarousel/owl.carousel.min.js"></script>
-<!-- Smooth Scroll js -->
-<script src="site/js/jquery.magnific-popup.min.js"></script>
-<!-- Meanmenu js -->
-<script src="site/js/jquery.meanmenu.min.js"></script>
-<!-- Smooth Scroll js -->
-<script src="site/js/jquery.smoothscroll.min.js"></script>
-<!-- Main js -->
-<script src="site/js/main.js"></script>
+
+<th:block th:replace="~{site/commons/commons::script}"></th:block>
 
 </body>
 

@@ -50,6 +50,14 @@ public interface TagService {
     List<Tag> listTag(String ids);
 
     /**
+     * 包含文章最多的 size 个标签
+     *
+     * @param size 要展示的标签个数
+     * @return 包含文章最多的 size 个标签
+     */
+    List<Tag> listTagTop(Integer size);
+
+    /**
      * 根据id查询到tag，并进行更新
      *
      * @param id  要更新的tag的id

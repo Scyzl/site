@@ -43,13 +43,13 @@ public class TypeController {
         return "admin/add_type";
     }
 
-    @GetMapping("/types/add/{id}")
+    @GetMapping("/types/add/{id:[0-9_]{1,5}+}")
     public String edit_type_page(@PathVariable Long id, Model model) {
         model.addAttribute("type", typeService.getType(id));
         return "admin/add_type";
     }
 
-    @PostMapping("/types/add/{id}")
+    @PostMapping("/types/add/{id:[0-9_]{1,5}+}")
     public String add_type(@Valid Type newType, BindingResult result,
                            @PathVariable Long id, RedirectAttributes attributes) {
         // 校验是否分类已存在
@@ -80,7 +80,7 @@ public class TypeController {
         return "redirect:/admin/types";
     }
 
-    @GetMapping("/types/delete/{id}")
+    @GetMapping("/types/delete/{id:[0-9_]{1,5}+}")
     public String delete_type(@PathVariable Long id, RedirectAttributes attributes) {
         typeService.remove(id);
         attributes.addFlashAttribute("flag", "0");

@@ -1,9 +1,12 @@
 package com.scy.controller.admin;
 
 import com.scy.po.User;
+import com.scy.service.BlogService;
+import com.scy.service.CommentService;
 import com.scy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,15 +15,34 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * @Author Scy
+ * @Date 2020/8/9 14:37
+ * @Version 1.0
+ */
+
 @Controller
 @RequestMapping("/admin")
 public class AdminIndexController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
+    @Autowired
+    private BlogService blogService;
+    @Autowired
+    private CommentService commentService;
+
+    private void getStatisticData(Model model) {
+        model.addAttribute("commentNum", blogService.commentsSum());
+        model.addAttribute("viewNum", blogService.viewsSum());
+        model.addAttribute("blogNum", blogService.countBlog());
+    }
 
     @GetMapping({"/", "/index"})
-    public String index() {
+    public String index(Model model) {
+        getStatisticData(model);
+        model.addAttribute("newPosts", blogService.listRecommendBlogTop(5, "updateTime"));
+        model.addAttribute("newComments", commentService.listNewCommentTop(5));
         return "admin/index";
     }
 
@@ -52,9 +74,5 @@ public class AdminIndexController {
         return "redirect:/admin/login";
     }
 
-    @GetMapping("/comments")
-    public String comments() {
-        return "admin/list_comment";
-    }
 
 }

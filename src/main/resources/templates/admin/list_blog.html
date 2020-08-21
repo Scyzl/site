@@ -142,7 +142,8 @@
                                                         <li th:each="i: ${#numbers.sequence(1, page.totalPages)}"
                                                             th:class="${i==page.number+1?'page-item active disabled': 'page-item'}">
                                                             <a class="page-link" th:text="${i}" style="color: #2d2d2d"
-                                                               th:href="@{/admin/blogs(page=${page.number}+${i}-${page.number}-1)}">1</a>
+                                                               onclick="page(this)"
+                                                               th:attr="data-page=${page.number}+${i}-${page.number}-1">1</a>
                                                         </li>
                                                         <li th:class="${page.last?'page-item disabled': 'page-item'}">
                                                             <a class="page-link" onclick="page(this)"

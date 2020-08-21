@@ -74,7 +74,7 @@ public class TagController {
         if (tag1 != null) {     // 标签已存在
             result.rejectValue("name", "nameError", "标签已存在，不可重复添加");
         }
-        System.out.println("result  ==>  " + result);
+//        System.out.println("result  ==>  " + result);
 
         // 如果校验结果中有 错误，则返回添加页面
         if (result.hasErrors()) {
@@ -99,7 +99,7 @@ public class TagController {
         return "redirect:/admin/tags";
     }
 
-    @GetMapping("/tags/delete/{id}")
+    @GetMapping("/tags/delete/{id:[0-9_]{1,5}+}")
     public String delete_tag(@PathVariable Long id, RedirectAttributes attributes) {
         tagService.removeTag(id);
         attributes.addFlashAttribute("msg", "操作成功！");

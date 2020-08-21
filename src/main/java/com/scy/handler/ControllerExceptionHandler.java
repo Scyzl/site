@@ -17,7 +17,7 @@ public class ControllerExceptionHandler {
 
     @ExceptionHandler(Exception.class)      // 配置为异常处理方法
     public ModelAndView exceptionHandler(HttpServletRequest request, Exception e) throws Exception {
-        logger.error("Request Url: {} , Exception: {}", request.getRequestURL(), e.getMessage());
+        logger.error("Request Url: {} , Exception: {}, RootCause: {}", request.getRequestURL(), e.getMessage(), e.getStackTrace());
 
         if (AnnotationUtils.findAnnotation(e.getClass(), ResponseStatus.class) != null) {
             throw e;

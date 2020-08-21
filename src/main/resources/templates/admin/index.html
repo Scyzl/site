@@ -29,11 +29,12 @@
                                 <div class="info-box7-block">
                                     <h6 class="m-b-20 text-right">发布量</h6>
                                     <h4 class="text-right"><i
-                                            class="fas fa-cart-plus pull-left bg-indigo c-icon"></i><span>7.12K</span>
+                                            class="fas fa-paper-plane pull-left bg-indigo c-icon"></i>
+                                        <span th:text="${blogNum}">7.12K</span>
                                     </h4>
-                                    <p class="mb-0 mt-3 text-muted"><i
+                                    <!--<p class="mb-0 mt-3 text-muted"><i
                                             class="fas fa-arrow-circle-up col-green m-r-5"></i><span
-                                            class="text-success font-weight-bold">23%</span> then previous month</p>
+                                            class="text-success font-weight-bold">23%</span> then previous month</p>-->
                                 </div>
                             </div>
                         </div>
@@ -43,10 +44,11 @@
                             <div class="card-statistic-4">
                                 <div class="info-box7-block">
                                     <h6 class="m-b-20 text-right">访问量</h6>
-                                    <h4 class="text-right"><i class="fas fa-users pull-left bg-cyan c-icon"></i><span>22.3K</span>
+                                    <h4 class="text-right"><i class="fas fa-book-reader pull-left bg-cyan c-icon"></i>
+                                        <span th:text="${viewNum}">22.3K</span>
                                     </h4>
-                                    <p class="mb-0 mt-3 text-muted"><i class="fas fa-arrow-circle-up col-red m-r-5"></i><span
-                                            class="col-red font-weight-bold">3%</span> then previous month</p>
+                                    <!--<p class="mb-0 mt-3 text-muted"><i class="fas fa-arrow-circle-up col-red m-r-5"></i><span
+                                            class="col-red font-weight-bold">3%</span> then previous month</p>-->
                                 </div>
                             </div>
                         </div>
@@ -57,11 +59,14 @@
                                 <div class="info-box7-block">
                                     <h6 class="m-b-20 text-right">评论数</h6>
                                     <h4 class="text-right"><i
-                                            class="fas fa-ticket-alt pull-left bg-deep-orange c-icon"></i><span>725</span>
+                                            class="fas fa-comments pull-left bg-deep-orange c-icon"></i><span
+                                            th:text="${commentNum}">725</span>
                                     </h4>
-                                    <p class="mb-0 mt-3 text-muted"><i
-                                            class="fas fa-arrow-circle-up col-green m-r-5"></i><span
-                                            class="text-success font-weight-bold">21%</span> then previous month</p>
+                                    <!--
+                                                                        <p class="mb-0 mt-3 text-muted"><i
+                                                                                class="fas fa-arrow-circle-up col-green m-r-5"></i><span
+                                                                                class="text-success font-weight-bold">21%</span> then previous month</p>
+                                    -->
                                 </div>
                             </div>
                         </div>
@@ -72,11 +77,11 @@
                                 <div class="info-box7-block">
                                     <h6 class="m-b-20 text-right">友链数</h6>
                                     <h4 class="text-right"><i
-                                            class="fas fa-dollar-sign pull-left bg-green c-icon"></i><span>$3.58M</span>
+                                            class="fas fa-link pull-left bg-green c-icon"></i><span>23</span>
                                     </h4>
-                                    <p class="mb-0 mt-3 text-muted"><i
+                                    <!--<p class="mb-0 mt-3 text-muted"><i
                                             class="fas fa-arrow-circle-down col-red m-r-5"></i><span
-                                            class="col-red font-weight-bold">05%</span> then previous month</p>
+                                            class="col-red font-weight-bold">05%</span> then previous month</p>-->
                                 </div>
                             </div>
                         </div>
@@ -92,35 +97,11 @@
                             <div class="card-body">
                                 <div id="activity-scroll">
                                     <ul class="activity-list">
-                                        <li><i class="activity-icon bg-success"></i>
-                                            <h6>Order Placed<small class="float-right text-muted">11 March 2019</small>
-                                            </h6>
-                                            <span class="font-12">Order ID: #8547</span>
-                                        </li>
-                                        <li><i class="activity-icon bg-info"></i>
-                                            <h6>Order Accept<small class="float-right text-muted tx-11">11 March
-                                                2019</small></h6> <span
-                                                    class="font-12">Order ID: #8547</span>
-                                        </li>
-                                        <li><i class="activity-icon bg-red"></i>
-                                            <h6>Ready For Dispatched<small class="float-right text-muted tx-11">12 March
-                                                2019</small></h6>
-                                            <span class="font-12">Order ID: #8547</span>
-                                        </li>
-                                        <li><i class="activity-icon bg-primary"></i>
-                                            <h6>Order Shipped<small class="float-right text-muted tx-11">14 March
-                                                2019</small></h6>
-                                            <span class="font-12">Tracking ID: ED8597587</span>
-                                        </li>
-                                        <li><i class="activity-icon bg-orange"></i>
-                                            <h6>Product Delivered<small class="float-right text-muted tx-11">16 March
-                                                2019</small></h6>
-                                            <span class="font-12">Receiver Name: John</span>
-                                        </li>
-                                        <li><i class="activity-icon bg-green"></i>
-                                            <h6>Product Return<small class="float-right text-muted tx-11">18 March
-                                                2019</small></h6>
-                                            <span class="font-12">Receiver Name: Sarah</span>
+                                        <li th:each="blog: ${newPosts}"><i class="activity-icon bg-success"></i>
+                                            <i class="fas fa-calendar"
+                                               th:text="| ${#dates.format(blog.updateTime, 'yyyy-MM-dd')} |"></i>
+                                            <a th:href="@{/admin/blogs/add/{id}(id=${blog.id})}" title="Edit"><h6
+                                                    th:text="${blog.title}"></h6></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -135,84 +116,22 @@
                             <div class="card-body">
                                 <div id="support-scroll">
                                     <ul class="list-unstyled ">
-                                        <li class="media border-bottom m-b-10 support-ticket">
-                                            <img alt="image" class="mr-3 user-img" src="img/users/user-5.png"
+                                        <li th:each="comment: ${newComments}"
+                                            class="media border-bottom m-b-10 support-ticket">
+                                            <img alt="image" class="mr-3 user-img" th:src="@{${comment.avatar}}"
                                                  width="40">
                                             <div class="media-body">
                                                 <div class="media-right">
                                                     <i class="far fa-thumbs-up col-blue"></i>
                                                     <i class="far fa-thumbs-down col-red"></i>
                                                 </div>
-                                                <div class="media-title mb-1">Alis Smith</div>
-                                                <div class="text-muted font-12">05 March 2019</div>
-                                                <div class="media-description">Duis aute irure dolor in voluptate velit
-                                                    esse
-                                                    cillum dolore.
+                                                <div class="media-title mb-1" th:text="${comment.nickname}">Alis Smith
                                                 </div>
-                                            </div>
-                                        </li>
-                                        <li class="media border-bottom m-b-10 support-ticket">
-                                            <img alt="image" class="mr-3 user-img" src="img/users/user-7.png"
-                                                 width="40">
-                                            <div class="media-body">
-                                                <div class="media-right">
-                                                    <i class="far fa-thumbs-up col-blue"></i>
-                                                    <i class="far fa-thumbs-down col-red"></i>
+                                                <div class="text-muted font-12"
+                                                     th:text="${#dates.format(comment.createTime, 'yyyy-MM-dd HH:mm')}">
+                                                    05 March 2019
                                                 </div>
-                                                <div class="media-title mb-1">Pooja Sarma</div>
-                                                <div class="text-muted font-12">05 March 2019</div>
-                                                <div class="media-description">Duis aute irure dolor in voluptate velit
-                                                    esse
-                                                    cillum dolore.
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="media border-bottom m-b-10 support-ticket">
-                                            <img alt="image" class="mr-3 user-img" src="img/users/user-1.png"
-                                                 width="40">
-                                            <div class="media-body">
-                                                <div class="media-right">
-                                                    <i class="far fa-thumbs-up col-blue"></i>
-                                                    <i class="far fa-thumbs-down col-red"></i>
-                                                </div>
-                                                <div class="media-title mb-1">John Deo</div>
-                                                <div class="text-muted font-12">05 March 2019</div>
-                                                <div class="media-description">Duis aute irure dolor in voluptate velit
-                                                    esse
-                                                    cillum dolore.
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="media border-bottom m-b-10 support-ticket">
-                                            <img alt="image" class="mr-3 user-img" src="img/users/user-8.png"
-                                                 width="40">
-                                            <div class="media-body">
-                                                <div class="media-right">
-                                                    <i class="far fa-thumbs-up col-blue"></i>
-                                                    <i class="far fa-thumbs-down col-red"></i>
-                                                </div>
-                                                <div class="media-title mb-1">Cara Stevens</div>
-                                                <div class="text-muted font-12">12 April 2019</div>
-                                                <div class="media-description">Duis aute irure dolor in voluptate velit
-                                                    esse
-                                                    cillum dolore.
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="media border-bottom m-b-10 support-ticket">
-                                            <img alt="image" class="mr-3 user-img" src="img/users/user-2.png"
-                                                 width="40">
-                                            <div class="media-body">
-                                                <div class="media-right">
-                                                    <i class="far fa-thumbs-up col-blue"></i>
-                                                    <i class="far fa-thumbs-down col-red"></i>
-                                                </div>
-                                                <div class="media-title mb-1">Priya Mehta</div>
-                                                <div class="text-muted font-12">19 May 2019</div>
-                                                <div class="media-description">Duis aute irure dolor in voluptate velit
-                                                    esse
-                                                    cillum dolore.
-                                                </div>
+                                                <div class="media-description" th:text="${comment.content}"></div>
                                             </div>
                                         </li>
                                     </ul>
@@ -223,7 +142,7 @@
                     <div class="col-12 col-sm-12 col-lg-4">
                         <div class="card">
                             <div class="card-header">
-                                <h4>系统日志</h4>
+                                <h4>系统日志（待开发...）</h4>
                             </div>
                             <div class="card-body">
                                 <div class="media-list position-relative">

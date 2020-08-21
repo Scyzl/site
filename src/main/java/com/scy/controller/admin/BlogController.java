@@ -71,7 +71,7 @@ public class BlogController {
         model.addAttribute("tags", tagService.listTag());
     }
 
-    @GetMapping("/blogs/add/{id}")
+    @GetMapping("/blogs/add/{id:[0-9_]{1,5}+}")
     public String edit_blog_page(@PathVariable Long id, Model model) {
         setTypeAndTag(model);
         Blog blog = blogService.getBlog(id);
@@ -108,7 +108,7 @@ public class BlogController {
         return REDIRECT_LIST;
     }
 
-    @GetMapping("/blogs/delete/{id}")
+    @GetMapping("/blogs/delete/{id:[0-9_]{1,5}+}")
     public String delete_blog(@PathVariable Long id, RedirectAttributes attributes) {
         blogService.deleteBlog(id);
         attributes.addFlashAttribute("flag", "0");

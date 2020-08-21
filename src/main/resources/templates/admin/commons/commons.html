@@ -17,6 +17,8 @@
     <link rel="stylesheet" th:href="@{bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.css}">
     <link rel="stylesheet" th:href="@{bundles/datatables/datatables.min.css}">
     <link rel="stylesheet" th:href="@{bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css}">
+
+    <link rel="stylesheet" th:href="@{bundles/prism/prism.css}">
     <!--    <link rel="stylesheet" th:href="@{bundles/datatables/Select-1.2.4/css/select.bootstrap4.min.css}">-->
     <!--editormd CSS-->
     <link rel="stylesheet" th:href="@{bundles/editormd/css/editormd.css}">
@@ -57,127 +59,13 @@
         </ul>
     </div>
     <ul class="navbar-nav navbar-right">
-        <li class="dropdown dropdown-list-toggle"><a class="nav-link nav-link-lg message-toggle" data-toggle="dropdown"
-                                                     href="#"><i
-                data-feather="mail"></i>
-            <span class="badge headerBadge1">
-                6 </span> </a>
-            <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
-                <div class="dropdown-header">
-                    Messages
-                    <div class="float-right">
-                        <a href="#">Mark All As Read</a>
-                    </div>
-                </div>
-                <div class="dropdown-list-content dropdown-list-message">
-                    <a class="dropdown-item" href="#"> <span class="dropdown-item-avatar
-											text-white"> <img alt="image" class="rounded-circle"
-                                                              src="img/users/user-1.png">
-                  </span> <span class="dropdown-item-desc"> <span class="message-user">John
-                      Deo</span>
-                    <span class="time messege-text">Please check your mail !!</span>
-                    <span class="time">2 Min Ago</span>
-                  </span>
-                    </a> <a class="dropdown-item" href="#"> <span class="dropdown-item-avatar text-white">
-                    <img alt="image" class="rounded-circle" src="img/users/user-2.png">
-                  </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
-                      Smith</span> <span class="time messege-text">Request for leave
-                      application</span>
-                    <span class="time">5 Min Ago</span>
-                  </span>
-                </a> <a class="dropdown-item" href="#"> <span class="dropdown-item-avatar text-white">
-                    <img alt="image" class="rounded-circle" src="img/users/user-5.png">
-                  </span> <span class="dropdown-item-desc"> <span class="message-user">Jacob
-                      Ryan</span> <span class="time messege-text">Your payment invoice is
-                      generated.</span> <span class="time">12 Min Ago</span>
-                  </span>
-                </a> <a class="dropdown-item" href="#"> <span class="dropdown-item-avatar text-white">
-                    <img alt="image" class="rounded-circle" src="img/users/user-4.png">
-                  </span> <span class="dropdown-item-desc"> <span class="message-user">Lina
-                      Smith</span> <span class="time messege-text">hii John, I have upload
-                      doc
-                      related to task.</span> <span class="time">30
-                      Min Ago</span>
-                  </span>
-                </a> <a class="dropdown-item" href="#"> <span class="dropdown-item-avatar text-white">
-                    <img alt="image" class="rounded-circle" src="img/users/user-3.png">
-                  </span> <span class="dropdown-item-desc"> <span class="message-user">Jalpa
-                      Joshi</span> <span class="time messege-text">Please do as specify.
-                      Let me
-                      know if you have any query.</span> <span class="time">1
-                      Days Ago</span>
-                  </span>
-                </a> <a class="dropdown-item" href="#"> <span class="dropdown-item-avatar text-white">
-                    <img alt="image" class="rounded-circle" src="img/users/user-2.png">
-                  </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
-                      Smith</span> <span class="time messege-text">Client Requirements</span>
-                    <span class="time">2 Days Ago</span>
-                  </span>
-                </a>
-                </div>
-                <div class="dropdown-footer text-center">
-                    <a href="#">View All <i class="fas fa-chevron-right"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="dropdown dropdown-list-toggle"><a class="nav-link notification-toggle nav-link-lg"
-                                                     data-toggle="dropdown"
-                                                     href="#"><i
-                class="bell" data-feather="bell"></i>
-        </a>
-            <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
-                <div class="dropdown-header">
-                    Notifications
-                    <div class="float-right">
-                        <a href="#">Mark All As Read</a>
-                    </div>
-                </div>
-                <div class="dropdown-list-content dropdown-list-icons">
-                    <a class="dropdown-item dropdown-item-unread" href="#"> <span
-                            class="dropdown-item-icon bg-primary text-white"> <i class="fas
-												fa-code"></i>
-                  </span> <span class="dropdown-item-desc"> Template update is
-                    available now! <span class="time">2 Min
-                      Ago</span>
-                  </span>
-                    </a> <a class="dropdown-item" href="#"> <span class="dropdown-item-icon bg-info text-white"> <i
-                        class="far
-												fa-user"></i>
-                  </span> <span class="dropdown-item-desc"> <b>You</b> and <b>Dedik
-                      Sugiharto</b> are now friends <span class="time">10 Hours
-                      Ago</span>
-                  </span>
-                </a> <a class="dropdown-item" href="#"> <span class="dropdown-item-icon bg-success text-white"> <i
-                        class="fas
-												fa-check"></i>
-                  </span> <span class="dropdown-item-desc"> <b>Kusnaedi</b> has
-                    moved task <b>Fix bug header</b> to <b>Done</b> <span class="time">12
-                      Hours
-                      Ago</span>
-                  </span>
-                </a> <a class="dropdown-item" href="#"> <span
-                        class="dropdown-item-icon bg-danger text-white"> <i
-                        class="fas fa-exclamation-triangle"></i>
-                  </span> <span class="dropdown-item-desc"> Low disk space. Let's
-                    clean it! <span class="time">17 Hours Ago</span>
-                  </span>
-                </a> <a class="dropdown-item" href="#"> <span class="dropdown-item-icon bg-info text-white"> <i
-                        class="fas
-												fa-bell"></i>
-                  </span> <span class="dropdown-item-desc"> Welcome to Zivi
-                    template! <span class="time">Yesterday</span>
-                  </span>
-                </a>
-                </div>
-                <div class="dropdown-footer text-center">
-                    <a href="#">View All <i class="fas fa-chevron-right"></i></a>
-                </div>
-            </div>
-        </li>
+        <li><a class="nav-link nav-link-lg" th:href="@{/site/}" title="前台">
+            <i data-feather="globe"></i>
+        </a></li>
         <li class="dropdown"><a class="nav-link dropdown-toggle nav-link-lg nav-link-user" data-toggle="dropdown"
                                 href="#"> <img alt="image"
                                                class="user-img-radious-style"
-                                               src="img/user.png">
+                                               th:src="@{${#request.session.getAttribute('user').avatar}}">
             <span class="d-sm-none d-lg-inline-block"></span></a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
                 <div class="dropdown-title"
@@ -205,10 +93,10 @@
     <aside id="sidebar-wrapper">
         <div class="sidebar-user">
             <div class="sidebar-user-picture">
-                <img alt="image" src="img/user.png">
+                <img alt="image" th:src="@{${#request.session.getAttribute('user').avatar}}">
             </div>
             <div class="sidebar-user-details">
-                <div class="user-name">Scy</div>
+                <div class="user-name" th:text="${#request.session.getAttribute('user').nickname}">Scy</div>
                 <div class="user-role">Administrator</div>
             </div>
         </div>
@@ -216,36 +104,36 @@
             <li class="menu-header">Main</li>
             <li th:class="${active=='home'}? 'dropdown active' : 'dropdown'">
                 <a class="menu-toggle nav-link" th:href="@{/admin/}">
-                    <i data-feather="monitor"></i><span>主页</span></a>
+                    <i data-feather="home"></i><span>主页</span></a>
             </li>
             <li th:class="${active=='blogs'}? 'dropdown active' : 'dropdown'">
                 <a class="menu-toggle nav-link" th:href="@{/admin/blogs}"><i
-                        data-feather="briefcase"></i><span>博客列表</span></a>
+                        data-feather="list"></i><span>博客列表</span></a>
             </li>
             <li th:class="${active=='post'}? 'dropdown active' : 'dropdown'">
                 <a class="menu-toggle nav-link" th:href="@{/admin/blogs/add}"><i
-                        data-feather="command"></i><span>发布博客</span></a>
+                        data-feather="send"></i><span>发布博客</span></a>
             </li>
             <li th:class="${active=='types'}? 'dropdown active' : 'dropdown'">
                 <a class="menu-toggle nav-link" th:href="@{/admin/types}"><i
-                        data-feather="mail"></i><span>分类管理</span></a>
+                        data-feather="type"></i><span>分类管理</span></a>
             </li>
             <li th:class="${active=='tags'}? 'dropdown active' : 'dropdown'">
                 <a class="menu-toggle nav-link" th:href="@{/admin/tags}"><i
-                        data-feather="mail"></i><span>标签管理</span></a>
+                        data-feather="tag"></i><span>标签管理</span></a>
             </li>
             <li th:class="${active=='comments'}? 'dropdown active' : 'dropdown'">
                 <a class="menu-toggle nav-link" th:href="@{/admin/comments}"><i
-                        data-feather="mail"></i><span>评论管理</span></a>
+                        data-feather="message-square"></i><span>评论管理</span></a>
             </li>
             <li th:class="${active=='friends'}? 'dropdown active' : 'dropdown'">
                 <a class="menu-toggle nav-link" href="#"><i
-                        data-feather="mail"></i><span>友链管理</span></a>
+                        data-feather="link"></i><span>友链管理</span></a>
             </li>
             <li class="menu-header">Settings</li>
             <li th:class="${active=='settings'}? 'dropdown active' : 'dropdown'">
                 <a class="menu-toggle nav-link" href="#"><i
-                        data-feather="mail"></i><span>设置</span></a>
+                        data-feather="settings"></i><span>设置</span></a>
             </li>
         </ul>
     </aside>
