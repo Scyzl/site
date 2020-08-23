@@ -5,7 +5,7 @@ target/
 !**/src/test/**/target/
 
 Zivi/
-
+logs/
 ### STS ###
 .apt_generated
 .classpath
