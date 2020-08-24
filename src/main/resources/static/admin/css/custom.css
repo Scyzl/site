@@ -1,0 +1,18 @@
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3VzdG9tLmNzcyIsInNvdXJjZXMiOlsiY3VzdG9tLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiJ9 */
+
+/*错误的显示样式*/
+input.error {
+    border: 1px solid red !important;
+}
+
+label.error {
+    /*background:url("../images/unchecked.gif") no-repeat 0px 0px;*/
+    padding-left: 16px;
+    padding-bottom: 2px;
+    font-weight: bold;
+    color: red;
+    font-size: x-small;
+}
+
+
+/*# sourceMappingURL=custom.css.map */
