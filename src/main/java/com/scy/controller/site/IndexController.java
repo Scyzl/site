@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Api(tags = "前台：博客主页控制器")
 @Controller
-@RequestMapping("/site")
+@RequestMapping(path = {"/", "/site"})
 public class IndexController {
 
     @Autowired

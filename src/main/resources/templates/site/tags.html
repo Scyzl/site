@@ -64,7 +64,7 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="blog-box-layout11" th:each="blog: ${page.content}"
                          style="border-bottom: 1px solid #6164ef">
-                        <div class="item-img">    <!--site/img/blog/blog93.jpg-->
+                        <div class="item-img">
                             <a th:href="@{/site/blog/{id}(id=${blog.id})}"><img th:src="@{${blog.topPicture}}"
                                                                                 style="width: 400px;height: 200px"
                                                                                 alt="blog"></a>
