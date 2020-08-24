@@ -34,7 +34,7 @@ public class TagShowController {
     private BlogService blogService;
 
     @ApiOperation("根据博客id加载标签")
-    @GetMapping({"/tags/{id:[0-9_]{1,5}+}"})
+    @GetMapping({"/tags/{id}"})
     public String tags(@PageableDefault(size = 1, sort = "updateTime", direction = Sort.Direction.DESC) Pageable pageable,
                        @ApiParam("博客id") @PathVariable Long id, Model model) {
         List<Tag> tags = tagService.listTagTop(1000);
