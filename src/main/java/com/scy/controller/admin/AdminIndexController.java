@@ -4,6 +4,9 @@ import com.scy.po.User;
 import com.scy.service.BlogService;
 import com.scy.service.CommentService;
 import com.scy.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +23,7 @@ import javax.servlet.http.HttpSession;
  * @Date 2020/8/9 14:37
  * @Version 1.0
  */
-
+@Api(tags = "后台：登录控制器")
 @Controller
 @RequestMapping("/admin")
 public class AdminIndexController {
@@ -32,12 +35,14 @@ public class AdminIndexController {
     @Autowired
     private CommentService commentService;
 
+    @ApiOperation("获取统计数据")
     private void getStatisticData(Model model) {
         model.addAttribute("commentNum", blogService.commentsSum());
         model.addAttribute("viewNum", blogService.viewsSum());
         model.addAttribute("blogNum", blogService.countBlog());
     }
 
+    @ApiOperation("后台管理系统主页")
     @GetMapping({"/", "/index"})
     public String index(Model model) {
         getStatisticData(model);
@@ -46,17 +51,18 @@ public class AdminIndexController {
         return "admin/index";
     }
 
+    @ApiOperation("跳转到登录页")
     @GetMapping("/login")
     public String loginPage() {
-//        int i = 1/0;
         return "admin/login";
     }
 
+    @ApiOperation("登录操作")
     @PostMapping("/login")
-    public String login(@RequestParam("username") String username,
-                        @RequestParam(name = "password") String password,
-                        HttpSession session,
-                        RedirectAttributes attributes) {
+    public String login(@ApiParam("用户名") @RequestParam("username") String username,
+                        @ApiParam("密码") @RequestParam(name = "password") String password,
+                        @ApiParam("session") HttpSession session,
+                        @ApiParam("转发属性集") RedirectAttributes attributes) {
         User user = userService.checkUser(username, password);
         if (user != null) {
             user.setPassword(null);     // 密码清空，保证安全
@@ -68,6 +74,7 @@ public class AdminIndexController {
         }
     }
 
+    @ApiOperation("注销")
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.removeAttribute("user");

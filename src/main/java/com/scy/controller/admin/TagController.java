@@ -2,6 +2,9 @@ package com.scy.controller.admin;
 
 import com.scy.po.Tag;
 import com.scy.service.TagService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -22,6 +25,7 @@ import javax.validation.Valid;
  * @Date 2020/8/7 17:12
  * @Version 1.0
  */
+@Api(tags = "后台：标签管理控制器")
 @Controller
 @RequestMapping("/admin")
 public class TagController {
@@ -29,6 +33,7 @@ public class TagController {
     @Autowired
     private TagService tagService;
 
+    @ApiOperation("标签列表")
     @GetMapping("/tags")
     public String tags(@PageableDefault(size = 2, sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable,
                        Model model) {
@@ -43,12 +48,14 @@ public class TagController {
      * @param model 利用它来进行传参
      * @return 添加标签页面
      */
+    @ApiOperation("跳转到添加标签页面")
     @GetMapping("/tags/add")
     public String add_tag_page(Model model) {
         model.addAttribute("tag", new Tag());
         return "admin/add_tag";
     }
 
+    @ApiOperation("跳转到编辑标签页面")
     @GetMapping("/tags/add/{id}")
     public String edit_tag_page(@PathVariable Long id, Model model) {
         model.addAttribute("tag", tagService.getTag(id));
@@ -64,8 +71,9 @@ public class TagController {
      * @param attributes 用于重定向时传递属性
      * @return 页面
      */
+    @ApiOperation("添加/更新标签")
     @PostMapping(value = {"/tags/add", "/tags/add/{id}"})
-    public String add_tag(@Valid Tag newTag, BindingResult result,
+    public String add_tag(@ApiParam("新标签") @Valid Tag newTag, BindingResult result,
                           RedirectAttributes attributes, @PathVariable Long id) {
 
         // 校验标签是否已存在
@@ -99,8 +107,9 @@ public class TagController {
         return "redirect:/admin/tags";
     }
 
+    @ApiOperation("删除标签")
     @GetMapping("/tags/delete/{id:[0-9_]{1,5}+}")
-    public String delete_tag(@PathVariable Long id, RedirectAttributes attributes) {
+    public String delete_tag(@ApiParam("标签id") @PathVariable Long id, RedirectAttributes attributes) {
         tagService.removeTag(id);
         attributes.addFlashAttribute("msg", "操作成功！");
         attributes.addFlashAttribute("flag", "0");

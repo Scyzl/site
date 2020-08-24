@@ -2,6 +2,9 @@ package com.scy.controller.admin;
 
 import com.scy.po.Type;
 import com.scy.service.TypeService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -24,6 +27,7 @@ import javax.validation.Valid;
  * @Date 2020/8/9 10:51
  * @Version 1.0
  */
+@Api(tags = "后台：类型管理控制器")
 @Controller
 @RequestMapping("/admin")
 public class TypeController {
@@ -31,24 +35,28 @@ public class TypeController {
     @Autowired
     TypeService typeService;
 
+    @ApiOperation("类型列表")
     @GetMapping("/types")
     public String types(@PageableDefault(size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable, Model model) {
         model.addAttribute("page", typeService.listType(pageable));
         return "admin/list_type";
     }
 
+    @ApiOperation("跳转到添加类型页面")
     @GetMapping("/types/add")
     public String add_type_page(Model model) {
         model.addAttribute("type", new Type());
         return "admin/add_type";
     }
 
+    @ApiOperation("跳转到编辑类型页面")
     @GetMapping("/types/add/{id:[0-9_]{1,5}+}")
-    public String edit_type_page(@PathVariable Long id, Model model) {
+    public String edit_type_page(@ApiParam("类型id") @PathVariable Long id, Model model) {
         model.addAttribute("type", typeService.getType(id));
         return "admin/add_type";
     }
 
+    @ApiOperation("添加/更新类型")
     @PostMapping("/types/add/{id:[0-9_]{1,5}+}")
     public String add_type(@Valid Type newType, BindingResult result,
                            @PathVariable Long id, RedirectAttributes attributes) {
@@ -80,8 +88,9 @@ public class TypeController {
         return "redirect:/admin/types";
     }
 
+    @ApiOperation("删除类型")
     @GetMapping("/types/delete/{id:[0-9_]{1,5}+}")
-    public String delete_type(@PathVariable Long id, RedirectAttributes attributes) {
+    public String delete_type(@ApiParam("类型id") @PathVariable Long id, RedirectAttributes attributes) {
         typeService.remove(id);
         attributes.addFlashAttribute("flag", "0");
         attributes.addFlashAttribute("msg", "操作成功");

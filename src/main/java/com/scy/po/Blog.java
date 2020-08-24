@@ -1,5 +1,7 @@
 package com.scy.po;
 
+import io.swagger.annotations.ApiModel;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,6 +14,7 @@ import java.util.List;
  * @Date 2020/8/7 10:52
  * @Version 1.0
  */
+@ApiModel("博客实体类")
 @Entity
 @Table(name = "t_blog")
 public class Blog {

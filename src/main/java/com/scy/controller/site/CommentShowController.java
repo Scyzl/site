@@ -3,6 +3,9 @@ package com.scy.controller.site;
 import com.scy.po.Comment;
 import com.scy.service.BlogService;
 import com.scy.service.CommentService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Date 2020/8/14 15:55
  * @Version 1.0
  */
+@Api(tags = "前台：博客评论控制器")
 @RequestMapping("/site")
 @Controller
 public class CommentShowController {
@@ -29,12 +33,14 @@ public class CommentShowController {
     @Value("${comment.avatar}")
     private String avatar;
 
+    @ApiOperation("根据博客id加载评论")
     @GetMapping("/comments/{blogId:[0-9_]{1,5}+}")
-    public String comments(@PathVariable Long blogId, Model model) {
+    public String comments(@ApiParam("博客id") @PathVariable Long blogId, Model model) {
         model.addAttribute("comments", commentService.listCommentByBlogId(blogId));
         return "site/blog::commentList";
     }
 
+    @ApiOperation("在博客前台添加评论")
     @PostMapping("/comments")
     public String post(Comment comment) {
         comment.setBlog(blogService.getBlog(comment.getBlog().getId()));

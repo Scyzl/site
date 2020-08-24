@@ -6,6 +6,9 @@ import com.scy.service.BlogService;
 import com.scy.service.TagService;
 import com.scy.service.TypeService;
 import com.scy.vo.BlogQuery;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -25,6 +28,7 @@ import javax.servlet.http.HttpSession;
  * @Date 2020/8/9 14:37
  * @Version 1.0
  */
+@Api(tags = "后台：博客管理控制器")
 @Controller
 @RequestMapping("/admin")
 public class BlogController {
@@ -40,22 +44,25 @@ public class BlogController {
     @Autowired
     private TagService tagService;
 
+    @ApiOperation("博客列表")
     @GetMapping("/blogs")
-    public String blogs(@PageableDefault(size = 2, sort = "updateTime", direction = Sort.Direction.DESC) Pageable pageable,
-                        BlogQuery blog, Model model) {
+    public String blogs(@ApiParam("分页") @PageableDefault(size = 2, sort = "updateTime", direction = Sort.Direction.DESC) Pageable pageable,
+                        @ApiParam("blog查询条件集合对象") BlogQuery blog, Model model) {
         model.addAttribute("page", blogService.listBlog(pageable, blog));
         model.addAttribute("types", typeService.listType());
         return LIST;
     }
 
+    @ApiOperation("检索博客")
     @PostMapping("/blogs/search")
-    public String search(@PageableDefault(size = 2, sort = "updateTime", direction = Sort.Direction.DESC) Pageable pageable,
-                         BlogQuery blog, Model model) {
+    public String search(@ApiParam("分页") @PageableDefault(size = 2, sort = "updateTime", direction = Sort.Direction.DESC) Pageable pageable,
+                         @ApiParam("blog查询条件集合对象") BlogQuery blog, Model model) {
         model.addAttribute("page", blogService.listBlog(pageable, blog));
 
         return "admin/list_blog :: blogList";
     }
 
+    @ApiOperation("跳转到添加博客页面")
     @GetMapping("/blogs/add")
     public String add_blog_page(Model model) {
         setTypeAndTag(model);
@@ -66,13 +73,15 @@ public class BlogController {
         return ADD;
     }
 
+
     private void setTypeAndTag(Model model) {
         model.addAttribute("types", typeService.listType());
         model.addAttribute("tags", tagService.listTag());
     }
 
+    @ApiOperation("跳转到编辑博客页面")
     @GetMapping("/blogs/add/{id:[0-9_]{1,5}+}")
-    public String edit_blog_page(@PathVariable Long id, Model model) {
+    public String edit_blog_page(@ApiParam("博客id") @PathVariable Long id, Model model) {
         setTypeAndTag(model);
         Blog blog = blogService.getBlog(id);
         blog.init();
@@ -82,8 +91,9 @@ public class BlogController {
         return ADD;
     }
 
+    @ApiOperation("添加/更新博客")
     @PostMapping("/blogs/add")
-    public String add_blog(Blog blog, HttpSession session, RedirectAttributes attributes) {
+    public String add_blog(@ApiParam("博客") Blog blog, HttpSession session, RedirectAttributes attributes) {
 
         System.out.println(blog.getTagIds());
         blog.setAuthor((User) session.getAttribute("user"));
@@ -108,6 +118,7 @@ public class BlogController {
         return REDIRECT_LIST;
     }
 
+    @ApiOperation("删除博客")
     @GetMapping("/blogs/delete/{id:[0-9_]{1,5}+}")
     public String delete_blog(@PathVariable Long id, RedirectAttributes attributes) {
         blogService.deleteBlog(id);

@@ -3,6 +3,9 @@ package com.scy.controller.site;
 import com.scy.po.Tag;
 import com.scy.service.BlogService;
 import com.scy.service.TagService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -20,6 +23,7 @@ import java.util.List;
  * @Date 2020/8/15 10:12
  * @Version 1.0
  */
+@Api(tags = "前台：博客标签控制器")
 @Controller
 @RequestMapping("/site")
 public class TagShowController {
@@ -29,9 +33,10 @@ public class TagShowController {
     @Autowired
     private BlogService blogService;
 
+    @ApiOperation("根据博客id加载标签")
     @GetMapping({"/tags/{id:[0-9_]{1,5}+}"})
     public String tags(@PageableDefault(size = 1, sort = "updateTime", direction = Sort.Direction.DESC) Pageable pageable,
-                       @PathVariable Long id, Model model) {
+                       @ApiParam("博客id") @PathVariable Long id, Model model) {
         List<Tag> tags = tagService.listTagTop(1000);
         if (id == -1) {
             id = tags.get(0).getId();
