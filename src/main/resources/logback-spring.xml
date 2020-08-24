@@ -12,7 +12,7 @@
     <!-- <property name="log_dir" value="f:/home/log" />-->
     <property name="log_dir" value="F:/Study/git/site/logs/"/>
     <!-- 日志最大的历史 30天 -->
-    <property name="maxHistory" value="30"/>
+    <property name="maxHistory" value="14"/>
 
     <!-- ConsoleAppender 控制台输出日志 -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
