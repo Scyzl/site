@@ -30,6 +30,9 @@
     <link rel="stylesheet" th:href="@{css/components.css}">
     <!-- Custom style CSS -->
     <link rel="stylesheet" th:href="@{css/custom.css}">
+
+    <link rel="stylesheet" th:href="@{bundles/owlcarousel2/dist/assets/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{bundles/owlcarousel2/dist/assets/owl.theme.default.min.css}">
     <link rel='shortcut icon' type='image/x-icon' th:href="@{img/favicon.ico}"/>
 </head>
 
@@ -37,7 +40,7 @@
 <nav class="navbar navbar-expand-lg main-navbar sticky" th:fragment="admin-headerbar">
     <div class="form-inline mr-auto">
         <ul class="navbar-nav mr-3">
-            <li><a class="nav-link nav-link-lg
+            <li><a id="siderbar" class="nav-link nav-link-lg
 									collapse-btn" data-toggle="sidebar" href="#"> <i
                     data-feather="align-justify"></i></a></li>
             <li><a class="nav-link nav-link-lg fullscreen-btn" href="#">
@@ -123,6 +126,10 @@
             <li th:class="${active=='comments'}? 'dropdown active' : 'dropdown'">
                 <a class="menu-toggle nav-link" th:href="@{/admin/comments}"><i
                         data-feather="message-square"></i><span>评论管理</span></a>
+            </li>
+            <li th:class="${active=='gallery'}? 'dropdown active' : 'dropdown'">
+                <a class="menu-toggle nav-link" th:href="@{/admin/gallery}"><i
+                        data-feather="image"></i><span>国色天香</span></a>
             </li>
             <li th:class="${active=='friends'}? 'dropdown active' : 'dropdown'">
                 <a class="menu-toggle nav-link" href="#"><i

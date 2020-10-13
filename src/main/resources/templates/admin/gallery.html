@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title = 'Gallery'">
+
+<head th:replace="~{admin/commons/commons::admin-head(${title})}"></head>
+
+<body>
+<div class="loader"></div>
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <!--顶部-->
+        <div class="navbar-bg"></div>
+        <nav th:replace="~{admin/commons/commons::admin-headerbar}"></nav>
+        <!--侧边栏-->
+        <div th:replace="~{admin/commons/commons::admin-sidebar(active='gallery')}"></div>
+        <!-- Main Content -->
+        <div class="main-content">
+            <section class="section">
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="bootstrap snippet">
+                                        <section id="portfolio" class="gray-bg padding-top-bottom">
+                                            <!--==== Portfolio Filters ====-->
+                                            <div class="categories">
+                                                <ul>
+                                                    <li class="active">
+                                                        <a href="#" data-filter="*">All Categories</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" data-filter=".web-design">天生丽质</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" data-filter=".apps">趣味乐园</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" data-filter=".psd">人在旅途</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!-- ======= Portfolio items ===-->
+                                            <div class="projects-container scrollimation in">
+                                                <div class="row">
+                                                    <article class="col-md-4 col-sm-6 portfolio-item web-design">
+                                                        <div class="portfolio-thumb in">
+                                                            <a href="http://mrscy.cn:521/" class="main-link">
+                                                                <div style="text-align: center;">
+                                                                    <img class="img-responsive img-center"
+                                                                         style="width: 80%;"
+                                                                         th:src="@{img/gallery/fm1.jpg}" alt="">
+                                                                </div>
+
+                                                                <span class="project-title">天生丽质</span>
+                                                                <span class="overlay-mask"></span>
+                                                            </a>
+                                                            <a class="link centered" href="#"><i
+                                                                    class="fa fa-eye fa-fw"></i></a>
+                                                        </div>
+                                                    </article>
+                                                    <article class="col-md-4 col-sm-6 portfolio-item apps">
+                                                        <div class="portfolio-thumb in" style="text-align: center;">
+                                                            <a href="http://mrscy.cn:520/site/blog/77"
+                                                               class="main-link">
+                                                                <div style="text-align: center;">
+                                                                    <img class="img-responsive img-center"
+                                                                         style="width: 80%;"
+                                                                         th:src="@{img/gallery/fm1.jpg}" alt="">
+                                                                </div>
+                                                                <span class="project-title">仙女本体</span>
+                                                                <span class="overlay-mask"></span>
+                                                            </a>
+                                                            <a class="link centered" href=""><i
+                                                                    class="fa fa-eye fa-fw"></i></a>
+                                                        </div>
+                                                    </article>
+                                                    <!--<article class="col-md-4 col-sm-6 portfolio-item psd">
+                                                      <div class="portfolio-thumb in">
+                                                        <a href="#" class="main-link">
+                                                          <div style="text-align: center;">
+                                                            <img class="img-responsive img-center" style="width: 80%;" th:src="@{img/gallery/fm1.jpg}" alt="">
+                                                          </div>
+                                                          <span class="project-title">Title 3</span>
+                                                          <span class="overlay-mask"></span>
+                                                        </a>
+                                                        <a class="enlarge centered cboxElement" href="#" title="Get Colored"><i
+                                                            class="fa fa-expand fa-fw"></i></a>
+                                                      </div>
+                                                    </article>
+                                                    <article class="col-md-4 col-sm-6 portfolio-item apps">
+                                                      <div class="portfolio-thumb in">
+                                                        <a href="#" class="main-link">
+                                                          <div style="text-align: center;">
+                                                            <img class="img-responsive img-center" style="width: 80%;" th:src="@{img/gallery/fm1.jpg}" alt="">
+                                                          </div>
+                                                          <span class="project-title">Title 4</span>
+                                                          <span class="overlay-mask"></span>
+                                                        </a>
+                                                        <a class="enlarge cboxElement" href="#" title="Holiday Selector"><i
+                                                            class="fa fa-expand fa-fw"></i></a>
+                                                        <a class="link" href="#"><i class="fa fa-eye fa-fw"></i></a>
+                                                      </div>
+                                                    </article>
+                                                    <article class="col-md-4 col-sm-6 portfolio-item psd">
+                                                      <div class="portfolio-thumb in">
+                                                        <a href="#" class="main-link">
+                                                          <div style="text-align: center;">
+                                                            <img class="img-responsive img-center" style="width: 80%;" th:src="@{img/gallery/fm1.jpg}" alt="">
+                                                          </div>
+                                                          <span class="project-title">Title 5</span>
+                                                          <span class="overlay-mask"></span>
+                                                        </a>
+                                                        <a class="enlarge cboxElement" href="#" title="Scavenger Hunt"><i
+                                                            class="fa fa-expand fa-fw"></i></a>
+                                                        <a class="link" href="#"><i class="fa fa-eye fa-fw"></i></a>
+                                                      </div>
+                                                    </article>
+                                                    <article class="col-md-4 col-sm-6 portfolio-item web-design">
+                                                      <div class="portfolio-thumb in">
+                                                        <a href="#" class="main-link">
+                                                          <div style="text-align: center;">
+                                                            <img class="img-responsive img-center" style="width: 80%;" th:src="@{img/gallery/fm1.jpg}" alt="">
+                                                          </div>
+                                                          <span class="project-title">Title 6</span>
+                                                          <span class="overlay-mask"></span>
+                                                        </a>
+                                                        <a class="enlarge cboxElement" href="#" title="Sonor"><i
+                                                            class="fa fa-expand fa-fw"></i></a>
+                                                        <a class="link" href="#"><i class="fa fa-eye fa-fw"></i></a>
+                                                      </div>
+                                                    </article>-->
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div th:replace="~{admin/commons/commons::admin-settingbar}"></div>
+        </div>
+        <!--底部-->
+        <footer th:replace="~{admin/commons/commons::admin-footer}"></footer>
+    </div>
+</div>
+<!-- General JS Scripts -->
+<script th:src="@{js/app.min.js}"></script>
+<!-- Template JS File -->
+<script th:src="@{js/scripts.js}"></script>
+<!-- Custom JS File -->
+<script th:src="@{js/custom.js}"></script>
+<!-- JS Libraies -->
+<!-- Page Specific JS File -->
+<script th:src="@{js/page/gallery.js}"></script>
+
+</body>
+
+</html>

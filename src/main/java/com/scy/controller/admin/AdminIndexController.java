@@ -57,6 +57,12 @@ public class AdminIndexController {
         return "admin/login";
     }
 
+    @ApiOperation("跳转到详情页")
+    @GetMapping("/details")
+    public String details() {
+        return "admin/profile";
+    }
+
     @ApiOperation("登录操作")
     @PostMapping("/login")
     public String login(@ApiParam("用户名") @RequestParam("username") String username,

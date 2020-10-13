@@ -680,14 +680,14 @@ $(function () {
         jQuery("body").addClass("light-sidebar");
         jQuery("body").addClass("theme-white");
 
-        // set default theme
+        // 设置默认主题 set default theme
         $(".choose-theme li").removeClass("active");
         $(".choose-theme li[title|='white']").addClass("active");
 
         $(".select-layout[value|='1']").prop("checked", true);
         $(".select-sidebar[value|='1']").prop("checked", true);
-        toggle_sidebar_mini(false);
-        $("#mini_sidebar_setting").prop("checked", false);
+        toggle_sidebar_mini(true);
+        $("#mini_sidebar_setting").prop("checked", true);
         $("#sticky_header_setting").prop("checked", true);
         toggle_sticky_header(true);
     });
@@ -705,6 +705,7 @@ $(function () {
     $(".select-layout[value|='1']").prop("checked", true);
     //set default dark or light sidebar(1=light, 2=dark)
     $(".select-sidebar[value|='1']").prop("checked", true);
+
     // sticky header default set to true
     $("#sticky_header_setting").prop("checked", true);
 });

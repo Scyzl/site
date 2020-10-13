@@ -2,9 +2,9 @@ spring:
   # 数据源
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/site?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://101.200.145.82:3379/site?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
     username: root
-    password: root
+    password: 123
   jpa:
     hibernate:
       ddl-auto: none    # 根据实体类更新表结构
@@ -12,8 +12,9 @@ spring:
 
 logging:
   level:
-    root: warning
+    root: warn
     com.scy.mysite: info
+  config: "classpath:logback-spring.xml"
 
 server:
   port: 521
